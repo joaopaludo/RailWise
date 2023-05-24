@@ -3,6 +3,13 @@ Sistema para gerenciamento de linhas ferroviárias
 
 <br>
 
+### Repositório
+* docs: documentações do projeto, requisitos etc.
+* modelagem: modelo relacional (visual paradigm)
+* scripts: scripts, selects, sql do projeto
+
+<br>
+
 ### Funções
 1. Controle de tráfego
 2. Agendar e planejar rotas
