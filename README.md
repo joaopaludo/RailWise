@@ -1,5 +1,3 @@
-autores(time), descrição do projeto, disciplina, etc.
-
 # RailWise
 Sistema para gerenciamento de linhas ferroviárias
 
