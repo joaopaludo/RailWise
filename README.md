@@ -27,6 +27,7 @@ Sistema para gerenciamento de linhas ferroviárias
 * LocomotivaRota
 * LocomotivaRotaVagao
 * Manutencao
+* ItemManutencao
 * Problema
 * Log
 
