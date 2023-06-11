@@ -1,5 +1,5 @@
 # RailWise
-Sistema para gerenciamento de linhas ferroviárias
+Sistema para gerenciamento de linhas ferroviárias para o transporte de cargas
 
 <br>
 
