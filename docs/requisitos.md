@@ -14,7 +14,7 @@
 
 3. Gestão de vagões e locomotivas
 - Controle de quais vagões vão para cada viagem
-- Capacidade de carga e tipo de carga dos vagões
+- [Capacidade de carga e tipo dos vagões](./tipos_vagoes.md)
 - Alocar vagões para viagens específicas
 - Atribuir locomotivas a rotas específicas
 
