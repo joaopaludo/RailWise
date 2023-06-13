@@ -11,6 +11,7 @@ Sistema para gerenciamento de linhas ferroviárias para o transporte de cargas
 <br>
 
 ### Funções
+[Requisitos](./docs/requisitos.md)
 1. Controle de tráfego
 2. Agendar e planejar rotas
 3. Gestão de vagões e locomotivas
@@ -29,8 +30,8 @@ Sistema para gerenciamento de linhas ferroviárias para o transporte de cargas
 * TipoFuncionario
 * Funcionario
 * Rota
-* LocomotivaRota
-* LocomotivaRotaVagao
+* Viagem
+* ViagemVagao
 * Manutencao
 * ItemManutencao
 * Problema
