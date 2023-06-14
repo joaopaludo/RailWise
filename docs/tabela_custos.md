@@ -1,0 +1,1 @@
+[link da tabela](https://www.giromarilia.com.br/noticia/giro-marilia/tabela-reduz-custo-de-cargas-por-trens-e-setor-fica-mais-atraente-faltam-as-ferrovias/17850)
