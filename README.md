@@ -23,19 +23,21 @@ Sistema para gerenciamento de linhas ferroviárias para o transporte de cargas
 <br>
 
 ### Tabelas:
-* Estacao
-* Locomotiva
-* Vagao
-* Carga
-* TipoFuncionario
-* Funcionario
-* Rota
-* Viagem
-* ViagemVagao
-* Manutencao
-* ItemManutencao
-* Problema
-* Log
+* log
+* estacao
+* funcionario
+* funcionarioviagem
+* carga
+* cliente
+* contato
+* tipofuncionario
+* viagem
+* viagemvagao
+* rota
+* locomotiva
+* vagao
+* tipovagao
+* manutencao
 
 <br>
 
