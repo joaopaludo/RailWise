@@ -5,11 +5,12 @@
 
 <br>
 
-2. Agendar e planejar rotas
+2. Agendar e planejar rotas / viagens
 - Mapa das rotas: o sistema deve guardar as rotas que conectam as estações
 - Distância da rota
 - Agendar rotas que acontecerão
 - Quantidade mínima de carga a ser levada para que uma viagem seja viável
+- Deve haver na relação da viagem a Origem (Local), o Destino (Local), a data e o horário a qual acontecerá uma viagem.
 
 <br>
 
@@ -20,6 +21,7 @@
 - Deve permitir controlar os vagões vazios que não estão sendo utilizados e estão parados nas estações/pátios.
 - Atribuir locomotivas a rotas específicas
 - O sistema deve possibilitar manter e atualizar informações relativas às capacidades e atributos das locomotivas, como potência, velocidade média e força.
+- Deve possuir data de fabricação da locomotiva
 
 <br>
 
