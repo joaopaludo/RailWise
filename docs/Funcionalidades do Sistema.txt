@@ -1,0 +1,13 @@
+Controle de Tráfego: Permite ao usuário controlar em tempo real as linhas dos trens, onde o mesmo também faz cálculos em tempo real para evitar conflitos de vagões, maximizando assim a segurança e organização das linhas.
+
+Agendamento e Planejamento de Rotas: Esta funcionalidade é definida ao criar uma rota, onde se adiciona o local de partida e o destino, e, logo após a data e horário previsto para saída do trem, onde o sistema irá calcular a data e hora prevista de chegada e também irá demonstrar ao usuário a melhor rota a ser feita e se há possibilidade de conflitos com outros trens.
+
+Gestão de Vagões e Locomotivas: Possibilita cadastrar e gerenciar novos vagões e trens, este cadastro é necessário para realizar uma contratação de carga, onde só se pode atribuir vagões e trens a rotas caso estes já estiverem cadastrados. Aqui também ocorre a vinculação dos trens as cargas, onde é definido que um determinado trem, efetuará o transporte de determinados vagões.
+
+Gestão de Carga: Ficam armazenados nesse local informações sobre as cargas que estão sendo ou serão transportadas, esta funcionalidade também controla o peso de cada vagão e a capacidade do trem, para que todos os limites de capacidade sejam respeitados.
+
+Gestão de Manutenção: Controla todas as manutenções que estão ocorrendo ou ocorrerão na ferrovia. Permite ao usuário agendar manutenções preventivas e controlar as linhas e os custos das manutenções.
+
+Gestão de Funcionários: Permite controlar quais funcionários trabalham em uma estação ou em um trem, e também definir as liberações que cada um vai ter dentro de sistema com base no cargo que o mesmo possui.
+
+Gestão de Problemas: Esta funcionalidade é focada em gravar no sistema e alertar os funcionários da ferrovia possíveis impecilhos que podem vir a ocorrer com as viagens, tais como: problemas climáticos, manutenções na via ferroviária, entre diversos outros casos.
