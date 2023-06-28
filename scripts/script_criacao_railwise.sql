@@ -1,3 +1,5 @@
+CREATE DATABASE railwise;
+
 -- tabela cliente
 
 CREATE TABLE public.cliente (
