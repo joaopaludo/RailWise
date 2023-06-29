@@ -22,17 +22,19 @@ INSERT INTO cliente VALUES (default, 'Cafeteria Aconchego', '10101010101010', '1
 
 
 -- inserção de estações
-INSERT INTO estacao VALUES (default, 'Jardim Colonial', 'São Paulo', 'SP', 'Av. Ragueb Chohfi, 1400, São Mateus', '08:00', '20:00');
-INSERT INTO estacao VALUES (default, 'Estação Central', 'Rio de Janeiro', 'RJ', 'Praça Cristiano Otoni, s/n, Central do Brasil', '07:00', '22:00');
-INSERT INTO estacao VALUES (default, 'Estação Bela Vista', 'São Paulo', 'SP', 'Rua Santo Antônio, 100, Bela Vista', '06:30', '21:30');
-INSERT INTO estacao VALUES (default, 'Estação da Lapa', 'Salvador', 'BA', 'Praça Visconde de Cayru, s/n, Comércio', '05:45', '20:30');
-INSERT INTO estacao VALUES (default, 'Estação Barra Funda', 'São Paulo', 'SP', 'Rua Tagipuru, 641, Barra Funda', '05:00', '23:00');
-INSERT INTO estacao VALUES (default, 'Estação da Luz', 'São Paulo', 'SP', 'Praça da Luz, s/n, Luz', '04:30', '00:30');
-INSERT INTO estacao VALUES (default, 'Estação Antônio Bezerra', 'Fortaleza', 'CE', 'Av. Cel. Carvalho, 608, Antônio Bezerra', '05:30', '22:30');
-INSERT INTO estacao VALUES (default, 'Estação Jardim Oceânico', 'Rio de Janeiro', 'RJ', 'Av. Ministro Ivan Lins, 300, Barra da Tijuca', '06:00', '21:00');
-INSERT INTO estacao VALUES (default, 'Estação Ana Rosa', 'São Paulo', 'SP', 'Av. Conselheiro Rodrigues Alves, 184, Paraíso', '05:30', '00:00');
-INSERT INTO estacao VALUES (default, 'Estação da Candelária', 'Rio de Janeiro', 'RJ', 'Praça Pio X, s/n, Centro', '07:00', '20:00');
-INSERT INTO estacao VALUES (default, 'Estação Campo Grande', 'Rio de Janeiro', 'RJ', 'Rua Cândido Benício, 2475, Campo Grande', '06:30', '21:30');
+INSERT INTO estacao VALUES (default, 'Estação Ferroviária de Paranaguá', 'Paranaguá', 'PR', 'Av. Rua Antonio Alceu Zielonka, s/n', '08:00', '20:00');
+INSERT INTO estacao VALUES (default, 'Estação Ferroviária de Santos', 'Santos', 'SP', 'Av. Senador Feijó, s/n', '07:00', '22:00');
+INSERT INTO estacao VALUES (default, 'Estação Ferroviária de São Simão', 'São Simão', 'GO', 'Av. 13 de Maio, s/n', '06:30', '21:30');
+INSERT INTO estacao VALUES (default, 'Estação Ferroviária de Rondonópolis', 'Rondonópolis', 'MT', 'Rua Marechal Dutra, s/n', '05:45', '20:30');
+INSERT INTO estacao VALUES (default, 'Estação Ferroviária de Juiz de Fora', 'Juiz de Fora', 'MG', 'Av. Brasil, s/n', '05:00', '23:00');
+INSERT INTO estacao VALUES (default, 'Estação Ferroviária de São Francisco do Sul', 'São Francisco do Sul', 'SC', 'Rua Riachuelo, s/n', '04:30', '00:30');
+INSERT INTO estacao VALUES (default, 'Estação Ferroviária de Araguari', 'Araguari', 'MG', 'Av. Dr. Mário Natal, s/n', '05:30', '22:30');
+INSERT INTO estacao VALUES (default, 'Estação Ferroviária de Santa Maria', 'Santa Maria', 'RS', 'Av. Prefeito Evandro Behr, s/n', '06:00', '21:00');
+INSERT INTO estacao VALUES (default, 'Estação Ferroviária de Araucária', 'Araucária', 'PR', 'Rua Ricardo Gumbleton Daunt, s/n', '05:30', '00:00');
+INSERT INTO estacao VALUES (default, 'Estação Ferroviária de Porto Velho', 'Porto Velho', 'RO', 'Av. Sete de Setembro, s/n', '07:00', '20:00');
 
 
 -- inserção de locomotivas
+INSERT INTO locomotiva VALUES (default, 'GE U8B', 1961, 198000, 900.00, 1514, 54500);
+INSERT INTO locomotiva VALUES (default, 'GE C44-9W', 1996, 81646, 4000.00, 19000, 192000);
+INSERT INTO locomotiva VALUES (default, 'EMD G12', 1968, 90000, 1310.00, 2840, 80000);
