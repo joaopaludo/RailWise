@@ -127,7 +127,7 @@ INSERT INTO contato VALUES (DEFAULT, 2, '1122836465', 5);
 
 
 -- inserção de funcionários
-INSERT INTO funcionario VALUES (DEFAULT, 1, 1, 'João Silva', '12345678901', '01/01/1990', 3000.00);
+INSERT INTO funcionario VALUES (DEFAULT, 1, null, 'João Silva', '12345678901', '01/01/1990', 3000.00);
 INSERT INTO funcionario VALUES (DEFAULT, 2, 2, 'Maria Santos', '98765432109', '15/05/1985', 2500.00);
 INSERT INTO funcionario VALUES (DEFAULT, 3, 3, 'Pedro Souza', '45678912345', '10/10/1992', 2800.00);
 INSERT INTO funcionario VALUES (DEFAULT, 4, null, 'Ana Oliveira', '78901234567', '20/03/1998', 2700.00);
@@ -138,6 +138,16 @@ INSERT INTO funcionario VALUES (DEFAULT, 8, 5, 'Gustavo Pereira', '90123456789',
 INSERT INTO funcionario VALUES (DEFAULT, 9, 6, 'Matheus Costa', '32109876543', '18/04/1996', 2600.00);
 INSERT INTO funcionario VALUES (DEFAULT, 10, null, 'Vitória Gomes', '76543210987', '30/11/1994', 2500.00);
 INSERT INTO funcionario VALUES (DEFAULT, 11, null, 'Márcia Rodrigues', '10293847560', '03/06/1991', 2800.00);
+INSERT INTO funcionario VALUES (DEFAULT, 4, null, 'Carolina Santos', '76843210987', '10/02/1998', 2700.00);
+INSERT INTO funcionario VALUES (DEFAULT, 1, null, 'Fernanda Oliveira', '24681357902', '12/03/1987', 3000.00);
+INSERT INTO funcionario VALUES (DEFAULT, 2, 7, 'Pedro Henrique', '13579246801', '25/09/1995', 2500.00);
+INSERT INTO funcionario VALUES (DEFAULT, 3, 8, 'Luisa Silva', '98765432123', '18/07/1990', 2800.00);
+INSERT INTO funcionario VALUES (DEFAULT, 5, null, 'Ricardo Pereira', '10987654321', '03/11/1993', 2600.00);
+INSERT INTO funcionario VALUES (DEFAULT, 6, 9, 'Sandra Lima', '10993847560', '16/06/1992', 2900.00);
+INSERT INTO funcionario VALUES (DEFAULT, 7, null, 'Lucas Almeida', '56789012345', '29/04/1989', 2400.00);
+INSERT INTO funcionario VALUES (DEFAULT, 8, 10, 'Fábio Gomes', '45678901234', '11/12/1996', 2700.00);
+INSERT INTO funcionario VALUES (DEFAULT, 9, 7, 'Juliana Costa', '98865432109', '24/08/1994', 2600.00);
+INSERT INTO funcionario VALUES (DEFAULT, 10, null, 'Rodrigo Mendes', '12345668901', '06/05/1991', 2500.00);
 
 
 -- inserção de rotas
