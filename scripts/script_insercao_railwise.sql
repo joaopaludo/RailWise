@@ -127,3 +127,17 @@ INSERT INTO contato VALUES (DEFAULT, 2, '1122836465', 5);
 
 
 -- inserção de funcionários
+INSERT INTO funcionario VALUES (DEFAULT, 1, 1, 'João Silva', '12345678901', '01/01/1990', 3000.00);
+INSERT INTO funcionario VALUES (DEFAULT, 2, 2, 'Maria Santos', '98765432109', '15/05/1985', 2500.00);
+INSERT INTO funcionario VALUES (DEFAULT, 3, 3, 'Pedro Souza', '45678912345', '10/10/1992', 2800.00);
+INSERT INTO funcionario VALUES (DEFAULT, 4, null, 'Ana Oliveira', '78901234567', '20/03/1998', 2700.00);
+INSERT INTO funcionario VALUES (DEFAULT, 5, null, 'Carlos Ferreira', '89012345678', '05/07/1995', 2600.00);
+INSERT INTO funcionario VALUES (DEFAULT, 6, 4, 'Laura Lima', '43210987654', '12/12/1990', 2900.00);
+INSERT INTO funcionario VALUES (DEFAULT, 7, null, 'Rafaela Almeida', '34567891234', '25/09/1988', 2400.00);
+INSERT INTO funcionario VALUES (DEFAULT, 8, 5, 'Gustavo Pereira', '90123456789', '08/08/1993', 2700.00);
+INSERT INTO funcionario VALUES (DEFAULT, 9, 6, 'Matheus Costa', '32109876543', '18/04/1996', 2600.00);
+INSERT INTO funcionario VALUES (DEFAULT, 10, null, 'Vitória Gomes', '76543210987', '30/11/1994', 2500.00);
+INSERT INTO funcionario VALUES (DEFAULT, 11, null, 'Márcia Rodrigues', '10293847560', '03/06/1991', 2800.00);
+
+
+-- inserção de rotas
