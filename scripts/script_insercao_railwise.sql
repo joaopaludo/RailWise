@@ -248,3 +248,62 @@ INSERT INTO viagem VALUES (DEFAULT, 10, 4, '2023-05-03 21:00:00', '2023-05-05 05
 
 
 -- inserção na tabela viagemvagao
+INSERT INTO viagemvagao VALUES (DEFAULT, 1, 1, 1, 100.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 1, 2, 2, 150.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 1, 3, 3, 120.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 2, 4, 4, 110.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 2, 5, 5, 130.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 2, 6, 6, 140.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 3, 7, 7, 160.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 3, 8, 8, 105.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 3, 9, 9, 125.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 4, 10, 10, 115.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 4, 11, 11, 135.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 4, 12, 12, 145.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 5, 13, 13, 170.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 5, 14, 14, 180.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 5, 15, 15, 165.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 6, 16, 16, 195.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 6, 17, 17, 200.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 6, 18, 18, 190.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 7, 19, 19, 205.00);
+INSERT INTO viagemvagao VALUES (DEFAULT, 7, 20, 20, 210.00);
+
+
+-- inserção na tabela funcionarioviagem
+INSERT INTO funcionarioviagem VALUES (1, 1);
+INSERT INTO funcionarioviagem VALUES (1, 3);
+INSERT INTO funcionarioviagem VALUES (1, 13);
+INSERT INTO funcionarioviagem VALUES (4, 4);
+INSERT INTO funcionarioviagem VALUES (4, 12);
+INSERT INTO funcionarioviagem VALUES (4, 20);
+INSERT INTO funcionarioviagem VALUES (5, 5);
+INSERT INTO funcionarioviagem VALUES (5, 14);
+INSERT INTO funcionarioviagem VALUES (5, 22);
+INSERT INTO funcionarioviagem VALUES (7, 7);
+INSERT INTO funcionarioviagem VALUES (7, 16);
+INSERT INTO funcionarioviagem VALUES (7, 24);
+INSERT INTO funcionarioviagem VALUES (10, 10);
+INSERT INTO funcionarioviagem VALUES (10, 19);
+INSERT INTO funcionarioviagem VALUES (10, 28);
+INSERT INTO funcionarioviagem VALUES (11, 11);
+INSERT INTO funcionarioviagem VALUES (11, 21);
+INSERT INTO funcionarioviagem VALUES (11, 29);
+INSERT INTO funcionarioviagem VALUES (12, 12);
+INSERT INTO funcionarioviagem VALUES (12, 20);
+INSERT INTO funcionarioviagem VALUES (12, 2);
+INSERT INTO funcionarioviagem VALUES (13, 1);
+INSERT INTO funcionarioviagem VALUES (13, 3);
+INSERT INTO funcionarioviagem VALUES (13, 13);
+INSERT INTO funcionarioviagem VALUES (16, 5);
+INSERT INTO funcionarioviagem VALUES (16, 14);
+INSERT INTO funcionarioviagem VALUES (16, 22);
+INSERT INTO funcionarioviagem VALUES (18, 7);
+INSERT INTO funcionarioviagem VALUES (18, 16);
+INSERT INTO funcionarioviagem VALUES (18, 24);
+INSERT INTO funcionarioviagem VALUES (21, 10);
+INSERT INTO funcionarioviagem VALUES (21, 19);
+INSERT INTO funcionarioviagem VALUES (21, 28);
+
+
+-- inserção na tabela manutenção
