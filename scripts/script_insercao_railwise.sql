@@ -307,3 +307,18 @@ INSERT INTO funcionarioviagem VALUES (21, 28);
 
 
 -- inserção na tabela manutenção
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 1', 0, '2023-05-01', 100.00, 1, NULL, NULL);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 2', 1, '2023-05-02', 150.50, 2, NULL, NULL);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 3', 2, '2023-05-03', 200.75, 3, NULL, NULL);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 4', 3, '2023-05-04', 300.25, 4, NULL, NULL);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 5', 4, '2023-05-05', 250.00, 5, NULL, NULL);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 6', 0, '2023-05-06', 120.00, NULL, 1, NULL);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 7', 1, '2023-05-07', 180.50, NULL, 2, NULL);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 8', 2, '2023-05-08', 220.75, NULL, 3, NULL);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 9', 3, '2023-05-09', 350.25, NULL, 4, NULL);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 10', 4, '2023-05-10', 280.00, NULL, 5, NULL);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 11', 0, '2023-05-11', 130.00, NULL, NULL, 1);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 12', 1, '2023-05-12', 160.50, NULL, NULL, 4);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 13', 2, '2023-05-13', 240.75, NULL, NULL, 7);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 14', 3, '2023-05-14', 380.25, NULL, NULL, 9);
+INSERT INTO manutencao VALUES (DEFAULT, 'Descrição 15', 4, '2023-05-15', 330.00, NULL, NULL, 11);
