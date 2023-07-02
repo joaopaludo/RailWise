@@ -1,3 +1,7 @@
+/*
+ * Relação dos top 10 destinos com mais cargas transportadas em 2022;
+ */
+
 SELECT count(destino.id_estacao) qtd_viagens, destino.tx_nome estacao, destino.tx_cidade cidade
 FROM viagem v
 INNER JOIN rota r ON r.id_rota = v.cd_rota

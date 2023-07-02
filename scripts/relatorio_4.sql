@@ -1,3 +1,7 @@
+/*
+ * Relação das viagens, a quantidade de carga total e o valor total(R$). Relacionar somente viagens com valores totais superiores a R$ 4500, realizadas entre 2010 e 2021. Ordene o relatório da viagem com maior valor para a viagem com menor valor.
+ */
+
 SELECT v.id_viagem, SUM(r.vl_distancia * v2.vl_custoporkm) custo_total, TO_CHAR(v.dt_momentosaida, 'DD-MM-YYYY') data_viagem
 FROM viagem v
 INNER JOIN rota r ON r.id_rota = v.cd_rota

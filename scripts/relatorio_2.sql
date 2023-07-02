@@ -1,3 +1,7 @@
+/*
+ * Relação de viagem(origem, destino, data e horário) realizadas em 2023. Ordene o relatório da viagem mais antiga para a mais recente;
+ */
+
 SELECT origem.tx_nome estacao_origem, origem.tx_cidade cidade_origem,
 destino.tx_nome estacao_destino, destino.tx_cidade cidade_destino, 
 v.dt_momentosaida data_saida, v.dt_momentochegada data_chegada
