@@ -15,33 +15,39 @@ Railwise é um sistema para o gerenciamento de linhas ferroviárias para o trans
 ### Funções
 [Requisitos](./docs/requisitos.md)
 1. Controle de tráfego:
->Permite ao usuário controlar em tempo real as linhas dos trens, onde o mesmo também faz cálculos em tempo real para evitar conflitos de vagões, maximizando assim a segurança e organização das linhas.
-
+```
+Permite ao usuário controlar em tempo real as linhas dos trens, onde o mesmo também faz cálculos em tempo real para evitar conflitos de vagões, maximizando assim a segurança e organização das linhas.
+```
 <br>
 
 2. Agendar e planejar rotas:
->Esta funcionalidade é definida ao criar uma rota, onde se adiciona o local de partida e o destino, e, logo após a data e horário previsto para saída do trem, onde o sistema irá calcular a data e hora prevista de chegada e também irá demonstrar ao usuário a melhor rota a ser feita e se há possibilidade de conflitos com outros trens.
-
+```
+Esta funcionalidade é definida ao criar uma rota, onde se adiciona o local de partida e o destino, e, logo após a data e horário previsto para saída do trem, onde o sistema irá calcular a data e hora prevista de chegada e também irá demonstrar ao usuário a melhor rota a ser feita e se há possibilidade de conflitos com outros trens.
+```
 <br>
 
 3. Gestão de vagões e locomotivas:
->Possibilita cadastrar e gerenciar novos vagões e trens, este cadastro é necessário para realizar uma contratação de carga, onde só se pode atribuir vagões e trens a rotas caso estes já estiverem cadastrados. Aqui também ocorre a vinculação dos trens as cargas, onde é definido que um determinado trem, efetuará o transporte de determinados vagões.
-
+```
+Possibilita cadastrar e gerenciar novos vagões e trens, este cadastro é necessário para realizar uma contratação de carga, onde só se pode atribuir vagões e trens a rotas caso estes já estiverem cadastrados. Aqui também ocorre a vinculação dos trens as cargas, onde é definido que um determinado trem, efetuará o transporte de determinados vagões.
+```
 <br>
 
 4. Gestão de carga:
->Ficam armazenados nesse local informações sobre as cargas que estão sendo ou serão transportadas, esta funcionalidade também controla o peso de cada vagão e a capacidade do trem, para que todos os limites de capacidade sejam respeitados.
-
+```
+Ficam armazenados nesse local informações sobre as cargas que estão sendo ou serão transportadas, esta funcionalidade também controla o peso de cada vagão e a capacidade do trem, para que todos os limites de capacidade sejam respeitados.
+```
 <br>
 
 5. Gestão de manutenção:
->Controla todas as manutenções que estão ocorrendo ou ocorrerão na ferrovia. Permite ao usuário agendar manutenções preventivas e controlar as linhas e os custos das manutenções.
-
+```
+Controla todas as manutenções que estão ocorrendo ou ocorrerão na ferrovia. Permite ao usuário agendar manutenções preventivas e controlar as linhas e os custos das manutenções.
+```
 <br>
 
 6. Gestão de funcionários:
->Permite controlar quais funcionários trabalham em uma estação ou em um trem, e também definir as liberações que cada um vai ter dentro de sistema com base no cargo que o mesmo possui.
-
+```
+Permite controlar quais funcionários trabalham em uma estação ou em um trem, e também definir as liberações que cada um vai ter dentro de sistema com base no cargo que o mesmo possui.
+```
 <br> <br>
 
 ### Tabelas:
