@@ -9,4 +9,5 @@ FROM viagem v
 INNER JOIN rota r ON r.id_rota = v.cd_rota
 INNER JOIN estacao origem ON origem.id_estacao = r.cd_estacaoorigem 
 INNER JOIN estacao destino ON destino.id_estacao = r.cd_estacaodestino
-WHERE EXTRACT('year' FROM v.dt_momentosaida) = 2023;
+WHERE EXTRACT('year' FROM v.dt_momentosaida) = 2023
+ORDER BY v.dt_momentosaida ASC;
