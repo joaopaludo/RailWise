@@ -10,4 +10,4 @@ INNER JOIN vagao v3 ON v3.id_vagao = v2.cd_vagao
 WHERE EXTRACT('Year' FROM v.dt_momentosaida) BETWEEN 2010 AND 2021
 GROUP BY v.id_viagem
 HAVING SUM(r.vl_distancia * v2.vl_custoporkm) > 4500
-ORDER BY custo_total;
+ORDER BY custo_total DESC;
