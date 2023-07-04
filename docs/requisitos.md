@@ -23,7 +23,7 @@ RF-08 - Formação de trens: o sistema deve controlar quais vagões e locomotiva
 RF-09 - O sistema deve permitir cadastrar os [tipos de vagões](./tipos_vagoes.md). <br>
 RF-10 - Deve permitir alocar vagões para viagens específicas -> adicionar código da estação na tabela vagao. E um atributo status para o vagao. <br>
 RF-11 - Deve permitir controlar os vagões vazios que não estão sendo utilizados e estão parados nas estações/pátios. <br>
-RF-12 - Atribuir locomotivas a viagens específicas -> adicionar código da estação na tabela locomotiva. E um atributo status para a locomotiva. <br>
+RF-12 - Atribuir locomotivas a viagens específicas <br>
 RF-13 - O sistema deve possibilitar manter e atualizar informações relativas às capacidades e atributos das locomotivas, como potência e força. <br>
 RF-14 - O sistema deve fornecer a data de fabricação da locomotiva. <br>
 
@@ -46,11 +46,6 @@ RF-20 - O sistema deve guardar informações sobre o que foi feito em uma manute
 6. Gestão de funcionários <br>
 RF-21 - O sistema deve permitir gerir quais funcionários trabalham em uma estação ou foram / irão em uma viagem. <br>
 RF-22 - Deve ser possível determinar o cargo ou função dos funcionários. <br>
-
-<br>
-
-7. Gestão de problemas <br>
-RF-23 - Gravar o relatório de problemas ou empecilhos que possam acontecer na viagem, como problemas climáticos, com a via etc. <br>
 
 <br>
 
