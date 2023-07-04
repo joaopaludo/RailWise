@@ -20,7 +20,7 @@ RF-07 - A relação de viagens deve incluir informações essenciais, como a ori
 
 3. Gestão de vagões e locomotivas <br>
 RF-08 - Formação de trens: o sistema deve controlar quais vagões e locomotivas vão para cada viagem <br>
-RF-09 - O sistema deve permitir cadastrar os [tipos de vagões](./tipos_vagoes.md). <br>
+RF-09 - O sistema deve permitir cadastrar os tipos de vagões. <br>
 RF-10 - Deve permitir alocar vagões para viagens específicas -> adicionar código da estação na tabela vagao. E um atributo status para o vagao. <br>
 RF-11 - Deve permitir controlar os vagões vazios que não estão sendo utilizados e estão parados nas estações/pátios. <br>
 RF-12 - Atribuir locomotivas a viagens específicas <br>
@@ -49,4 +49,4 @@ RF-22 - Deve ser possível determinar o cargo ou função dos funcionários. <br
 
 <br>
 
-RNF-24 - Deve funcionar em aplicativo Mobile / Web.
+RNF-23 - Deve funcionar em aplicativo Mobile / Web.
