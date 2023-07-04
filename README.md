@@ -74,4 +74,4 @@ Railwise é um sistema para o gerenciamento de linhas ferroviárias para o trans
 
 >Disciplina: Banco de dados I
 
->Docente: Roberson Júnior Fernandes Alves
+>Docente: Roberson Junior Fernandes Alves
