@@ -49,9 +49,4 @@ RF-22 - Deve ser possível determinar o cargo ou função dos funcionários. <br
 
 <br>
 
-7. Gestão de problemas <br>
-RF-23 - Gravar o relatório de problemas ou empecilhos que possam acontecer na viagem, como problemas climáticos, com a via etc. <br>
-
-<br>
-
 RNF-24 - Deve funcionar em aplicativo Mobile / Web.
