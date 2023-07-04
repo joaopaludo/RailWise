@@ -49,4 +49,4 @@ RF-22 - Deve ser possível determinar o cargo ou função dos funcionários. <br
 
 <br>
 
-RNF-24 - Deve funcionar em aplicativo Mobile / Web.
+RNF-23 - Deve funcionar em aplicativo Mobile / Web.
