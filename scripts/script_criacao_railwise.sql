@@ -121,12 +121,13 @@ COMMENT ON COLUMN funcionario.vl_salario IS 'Salário do funcionário em R$';
 -- tabela funcionarioviagem
 
 CREATE TABLE funcionarioviagem (
+	id_funcionarioviagem SERIAL NOT NULL,
 	cd_funcionario int4 NOT NULL,
 	cd_viagem int4 NOT NULL,
-	PRIMARY KEY (cd_funcionario, cd_viagem)
-);
+	CONSTRAINT funcionarioviagem_pk PRIMARY KEY (id_funcionarioviagem));
 
 COMMENT ON TABLE funcionarioviagem IS 'Tabela que relaciona os funcionários às viagens realizadas, permitindo saber em quais viagens um funcionário foi.';
+COMMENT ON COLUMN funcionarioviagem.id_funcionarioviagem IS 'Id da tabela funcionário viagem (chave primária).';
 COMMENT ON COLUMN funcionarioviagem.cd_funcionario IS 'Referencia o código do funcionário na tabela funcionario';
 COMMENT ON COLUMN funcionarioviagem.cd_viagem IS 'Referencia o código da viagem na tabela viagem';
 
@@ -283,13 +284,16 @@ COMMENT ON COLUMN viagem.dt_fim IS 'Data de fim da viagem (chegada na última es
 -- tabela viagemrota
 
 CREATE TABLE viagemrota (
+	id_viagemrota SERIAL NOT NULL,
 	cd_rota int4 NOT NULL,
 	cd_viagem int4 NOT NULL,
 	dt_momentosaida timestamp,
 	dt_momentochegada timestamp,
-	PRIMARY KEY (cd_rota, cd_viagem)
+	CONSTRAINT viagemrota_pk PRIMARY KEY (id_viagemrota)
 );
 
+COMMENT ON TABLE viagemrota IS 'Tabela que relaciona as rotas presentes em uma viagem.';
+COMMENT ON COLUMN viagemrota.id_viagemrota IS 'Id da tabela viagemrota (chave primária).';
 COMMENT ON COLUMN viagemrota.cd_rota IS 'Código da rota';
 COMMENT ON COLUMN viagemrota.cd_viagem IS 'Código da viagem';
 COMMENT ON COLUMN viagemrota.dt_momentosaida IS 'Momento de saída do trem da estação origem.';
