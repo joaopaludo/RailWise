@@ -147,7 +147,7 @@ COMMENT ON COLUMN carga.vl_peso IS 'Peso da carga em kg.';
 
 CREATE TABLE contato (
 	id_contato SERIAL NOT NULL,
-	cd_tipocontato int4 NOT NULL,
+	cd_tipocontato int4 NOT NULL CHECK(cd_tipocontato IN (1, 2, 3)),
 	tx_contato varchar(60) NOT NULL,
 	cd_cliente int4 NOT NULL,
 	CONSTRAINT contato_pk PRIMARY KEY (id_contato)
