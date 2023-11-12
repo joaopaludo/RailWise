@@ -56,6 +56,7 @@ Railwise é um sistema para o gerenciamento de linhas ferroviárias para o trans
 * tipofuncionario
 * viagem
 * viagemvagao
+* viagemrota
 * rota
 * locomotiva
 * vagao
@@ -74,4 +75,4 @@ Railwise é um sistema para o gerenciamento de linhas ferroviárias para o trans
 
 >Disciplinas: Banco de dados II, Programação II e Engenharia de Software I
 
->Docente: Roberson Junior Fernandes Alves, Otília Donato Barbosa e Franciele Carla Petry
+>Docentes: Roberson Junior Fernandes Alves, Otília Donato Barbosa e Franciele Carla Petry
