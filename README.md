@@ -8,6 +8,7 @@ Railwise é um sistema para o gerenciamento de linhas ferroviárias para o trans
 ### Repositório
 * [docs](./docs): documentações do projeto, requisitos etc.
 * [modelagem](./modelagem/): modelo relacional (visual paradigm)
+* [railwise_java](./railwise_java/): projeto Spring Boot Java
 * [scripts](./scripts/): scripts, selects, sql do projeto
 
 <br>

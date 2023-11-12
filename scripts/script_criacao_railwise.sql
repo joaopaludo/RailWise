@@ -8,27 +8,6 @@
 CREATE DATABASE railwise;
 
 
--- tabela carga
-
-CREATE TABLE carga (
-	id_carga SERIAL NOT NULL,
-	tx_descricao varchar(100) NOT NULL,
-	cd_estacaoorigem int4 NOT NULL,
-	cd_estacaodestino int4 NOT NULL,
-	cd_cliente int4 NOT NULL,
-	vl_peso numeric(10, 3) NOT NULL,
-	CONSTRAINT carga_pk PRIMARY KEY (id_carga)
-);
-
-COMMENT ON TABLE carga IS 'Tabela de cadastro das cargas';
-COMMENT ON COLUMN carga.id_carga IS 'Id da tabela carga (chave primária)';
-COMMENT ON COLUMN carga.tx_descricao IS 'Descrição da carga';
-COMMENT ON COLUMN carga.cd_estacaoorigem IS 'Código que referencia a estação de onde a carga saiu.';
-COMMENT ON COLUMN carga.cd_estacaodestino IS 'Código que referencia a estação para a qual a carga está destinada.';
-COMMENT ON COLUMN carga.cd_cliente IS 'Código que indica qual cliente contratou o transporte da carga.';
-COMMENT ON COLUMN carga.vl_peso IS 'Peso da carga em kg.';
-
-
 -- tabela cliente
 
 CREATE TABLE cliente (
@@ -52,26 +31,6 @@ COMMENT ON COLUMN cliente.cd_status IS 'Código que indica o status do cliente n
 2 - Bloqueado';
 
 
--- tabela contato
-
-CREATE TABLE contato (
-	id_contato SERIAL NOT NULL,
-	cd_tipocontato int4 NOT NULL,
-	tx_contato varchar(60) NOT NULL,
-	cd_cliente int4 NOT NULL,
-	CONSTRAINT contato_pk PRIMARY KEY (id_contato)
-);
-
-COMMENT ON TABLE contato IS 'Tabela de cadastro dos contatos dos clientes';
-COMMENT ON COLUMN contato.id_contato IS 'Id da tabela contato (chave primária)';
-COMMENT ON COLUMN contato.cd_tipocontato IS 'Código que define o tipo do contato:
-1 - E-mail
-2 - Telefone
-3 - Celular';
-COMMENT ON COLUMN contato.tx_contato IS 'Campo para informar o contato, podendo ser e-mail, telefone ou número de celular, a depender do especificado no campo cd_tipocontato';
-COMMENT ON COLUMN contato.cd_cliente IS 'Código do cliente ao qual o contato pertence.';
-
-
 -- tabela estacao
 
 CREATE TABLE estacao (
@@ -93,43 +52,6 @@ COMMENT ON COLUMN estacao.tx_uf IS 'Sigla da unidade federativa a que pertence a
 COMMENT ON COLUMN estacao.tx_endereco IS 'Endereço da estação (rua, número, referência etx.)';
 COMMENT ON COLUMN estacao.hr_inicioexpediente IS 'Horário de início do expediente da estação';
 COMMENT ON COLUMN estacao.hr_finalexpediente IS 'Horário do final do expediente de funcionamento da estação';
-
-
--- tabela funcionario
-
-CREATE TABLE funcionario (
-	id_funcionario SERIAL NOT NULL,
-	cd_tipofuncionario int4 NOT NULL,
-	cd_estacao int4,
-	tx_nome varchar(80) NOT NULL,
-	tx_cpf varchar(15) NOT NULL UNIQUE,
-	dt_nascimento date NOT NULL,
-	vl_salario numeric(8, 2) NOT NULL,
-	CONSTRAINT funcionario_pk PRIMARY KEY (id_funcionario)
-);
-
-COMMENT ON TABLE funcionario IS 'Tabela de cadastro dos funcionários';
-COMMENT ON COLUMN funcionario.id_funcionario IS 'Id da tabela funcionário (chave primária)';
-COMMENT ON COLUMN funcionario.cd_tipofuncionario IS 'Código do tipo de funcionário. Chave estrangeira que faz referência à chave primária da tabela tipofuncionario.';
-COMMENT ON COLUMN funcionario.cd_estacao IS 'Código da estação: referencia o id da estação em que o funcionário trabalha, se ele trabalha em uma estação.';
-COMMENT ON COLUMN funcionario.tx_nome IS 'Nome do funcionário';
-COMMENT ON COLUMN funcionario.tx_cpf IS 'CPF do funcionário';
-COMMENT ON COLUMN funcionario.dt_nascimento IS 'Data de nascimento do funcionário';
-COMMENT ON COLUMN funcionario.vl_salario IS 'Salário do funcionário em R$';
-
-
--- tabela funcionarioviagem
-
-CREATE TABLE funcionarioviagem (
-	id_funcionarioviagem SERIAL NOT NULL,
-	cd_funcionario int4 NOT NULL,
-	cd_viagem int4 NOT NULL,
-	CONSTRAINT funcionarioviagem_pk PRIMARY KEY (id_funcionarioviagem));
-
-COMMENT ON TABLE funcionarioviagem IS 'Tabela que relaciona os funcionários às viagens realizadas, permitindo saber em quais viagens um funcionário foi.';
-COMMENT ON COLUMN funcionarioviagem.id_funcionarioviagem IS 'Id da tabela funcionário viagem (chave primária).';
-COMMENT ON COLUMN funcionarioviagem.cd_funcionario IS 'Referencia o código do funcionário na tabela funcionario';
-COMMENT ON COLUMN funcionarioviagem.cd_viagem IS 'Referencia o código da viagem na tabela viagem';
 
 
 -- tabela locomotiva
@@ -174,53 +96,6 @@ COMMENT ON COLUMN log.tx_descricao IS 'Descrição do log: o que ele especifica,
 COMMENT ON COLUMN log.dt_registro IS 'Data em que o log foi gerado';
 
 
--- tabela manutencao
-
-CREATE TABLE manutencao (
-	id_manutencao SERIAL NOT NULL,
-	tx_descricao varchar(1000) NOT NULL,
-	cd_status int4 NOT NULL CHECK(cd_status IN (0, 1, 2, 3, 4)),
-	dt_realizacao date NOT NULL,
-	vl_custo numeric(10, 2) NOT NULL,
-	cd_locomotiva int4,
-	cd_vagao int4,
-	cd_ferrovia int4,
-	CONSTRAINT manutencao_pk PRIMARY KEY (id_manutencao)
-);
-
-COMMENT ON TABLE manutencao IS 'Tabela de controle das manutenções';
-COMMENT ON COLUMN manutencao.id_manutencao IS 'Id da tabela manutenção (chave primária)';
-COMMENT ON COLUMN manutencao.tx_descricao IS 'Descrição dos problemas encontrados e de itens que passaram por manutenção';
-COMMENT ON COLUMN manutencao.cd_status IS 'Código que determina o status da manutenção:
-0 - Programada
-1 - Em andamento
-2 - Em pausa
-3 - Concluída
-4 - Cancelada';
-COMMENT ON COLUMN manutencao.dt_realizacao IS 'Data de realização da manutenção';
-COMMENT ON COLUMN manutencao.vl_custo IS 'Custo do item da manutenção';
-COMMENT ON COLUMN manutencao.cd_locomotiva IS 'Código da locomotiva: referencia o id da locomotiva';
-COMMENT ON COLUMN manutencao.cd_vagao IS 'Código da vagao: referencia o id do vagao';
-COMMENT ON COLUMN manutencao.cd_ferrovia IS 'Código da rota: referencia o id da rota, em que a ferrovia esta localizada';
-
-
--- tabela rota
-
-CREATE TABLE rota (
-	id_rota SERIAL NOT NULL,
-	cd_estacaoorigem int4 NOT NULL,
-	cd_estacaodestino int4 NOT NULL,
-	vl_distancia numeric(10, 3) NOT NULL,
-	CONSTRAINT rota_pk PRIMARY KEY (id_rota)
-);
-
-COMMENT ON TABLE rota IS 'Tabela de registro das rotas';
-COMMENT ON COLUMN rota.id_rota IS 'Id da tabela rota (chave primária)';
-COMMENT ON COLUMN rota.cd_estacaoorigem IS 'Código da estação de origem da rota';
-COMMENT ON COLUMN rota.cd_estacaodestino IS 'Código da estação de destino da rota.';
-COMMENT ON COLUMN rota.vl_distancia IS 'Distância da origem até o destino em km.';
-
-
 -- tabela tipofuncionario
 
 CREATE TABLE tipofuncionario (
@@ -245,6 +120,87 @@ CREATE TABLE tipovagao (
 COMMENT ON TABLE tipovagao IS 'Tabela dos tipos de vagões';
 COMMENT ON COLUMN tipovagao.id_tipovagao IS 'Id da tabela tipovagao (chave primária)';
 COMMENT ON COLUMN tipovagao.tx_descricao IS 'Descrição do tipo de vagão';
+
+
+-- tabela carga
+
+CREATE TABLE carga (
+	id_carga SERIAL NOT NULL,
+	tx_descricao varchar(100) NOT NULL,
+	cd_estacaoorigem int4 NOT NULL,
+	cd_estacaodestino int4 NOT NULL,
+	cd_cliente int4 NOT NULL,
+	vl_peso numeric(10, 3) NOT NULL,
+	CONSTRAINT carga_pk PRIMARY KEY (id_carga)
+);
+
+COMMENT ON TABLE carga IS 'Tabela de cadastro das cargas';
+COMMENT ON COLUMN carga.id_carga IS 'Id da tabela carga (chave primária)';
+COMMENT ON COLUMN carga.tx_descricao IS 'Descrição da carga';
+COMMENT ON COLUMN carga.cd_estacaoorigem IS 'Código que referencia a estação de onde a carga saiu.';
+COMMENT ON COLUMN carga.cd_estacaodestino IS 'Código que referencia a estação para a qual a carga está destinada.';
+COMMENT ON COLUMN carga.cd_cliente IS 'Código que indica qual cliente contratou o transporte da carga.';
+COMMENT ON COLUMN carga.vl_peso IS 'Peso da carga em kg.';
+
+
+-- tabela contato
+
+CREATE TABLE contato (
+	id_contato SERIAL NOT NULL,
+	cd_tipocontato int4 NOT NULL,
+	tx_contato varchar(60) NOT NULL,
+	cd_cliente int4 NOT NULL,
+	CONSTRAINT contato_pk PRIMARY KEY (id_contato)
+);
+
+COMMENT ON TABLE contato IS 'Tabela de cadastro dos contatos dos clientes';
+COMMENT ON COLUMN contato.id_contato IS 'Id da tabela contato (chave primária)';
+COMMENT ON COLUMN contato.cd_tipocontato IS 'Código que define o tipo do contato:
+1 - E-mail
+2 - Telefone
+3 - Celular';
+COMMENT ON COLUMN contato.tx_contato IS 'Campo para informar o contato, podendo ser e-mail, telefone ou número de celular, a depender do especificado no campo cd_tipocontato';
+COMMENT ON COLUMN contato.cd_cliente IS 'Código do cliente ao qual o contato pertence.';
+
+
+-- tabela funcionario
+
+CREATE TABLE funcionario (
+	id_funcionario SERIAL NOT NULL,
+	cd_tipofuncionario int4 NOT NULL,
+	cd_estacao int4,
+	tx_nome varchar(80) NOT NULL,
+	tx_cpf varchar(15) NOT NULL UNIQUE,
+	dt_nascimento date NOT NULL,
+	vl_salario numeric(8, 2) NOT NULL,
+	CONSTRAINT funcionario_pk PRIMARY KEY (id_funcionario)
+);
+
+COMMENT ON TABLE funcionario IS 'Tabela de cadastro dos funcionários';
+COMMENT ON COLUMN funcionario.id_funcionario IS 'Id da tabela funcionário (chave primária)';
+COMMENT ON COLUMN funcionario.cd_tipofuncionario IS 'Código do tipo de funcionário. Chave estrangeira que faz referência à chave primária da tabela tipofuncionario.';
+COMMENT ON COLUMN funcionario.cd_estacao IS 'Código da estação: referencia o id da estação em que o funcionário trabalha, se ele trabalha em uma estação.';
+COMMENT ON COLUMN funcionario.tx_nome IS 'Nome do funcionário';
+COMMENT ON COLUMN funcionario.tx_cpf IS 'CPF do funcionário';
+COMMENT ON COLUMN funcionario.dt_nascimento IS 'Data de nascimento do funcionário';
+COMMENT ON COLUMN funcionario.vl_salario IS 'Salário do funcionário em R$';
+
+
+-- tabela rota
+
+CREATE TABLE rota (
+	id_rota SERIAL NOT NULL,
+	cd_estacaoorigem int4 NOT NULL,
+	cd_estacaodestino int4 NOT NULL,
+	vl_distancia numeric(10, 3) NOT NULL,
+	CONSTRAINT rota_pk PRIMARY KEY (id_rota)
+);
+
+COMMENT ON TABLE rota IS 'Tabela de registro das rotas';
+COMMENT ON COLUMN rota.id_rota IS 'Id da tabela rota (chave primária)';
+COMMENT ON COLUMN rota.cd_estacaoorigem IS 'Código da estação de origem da rota';
+COMMENT ON COLUMN rota.cd_estacaodestino IS 'Código da estação de destino da rota.';
+COMMENT ON COLUMN rota.vl_distancia IS 'Distância da origem até o destino em km.';
 
 
 -- tabela vagao
@@ -317,6 +273,50 @@ COMMENT ON COLUMN viagemvagao.cd_viagem IS 'Código da viagem';
 COMMENT ON COLUMN viagemvagao.cd_vagao IS 'Código que indica o vagão que está sendo referenciado.';
 COMMENT ON COLUMN viagemvagao.cd_carga IS 'Código da carga que foi / será transportada por dado vagão em uma determinada viagem.';
 COMMENT ON COLUMN viagemvagao.vl_custoporkm IS 'Valor de custo para transporte por quilômetro';
+
+
+-- tabela funcionarioviagem
+
+CREATE TABLE funcionarioviagem (
+	id_funcionarioviagem SERIAL NOT NULL,
+	cd_funcionario int4 NOT NULL,
+	cd_viagem int4 NOT NULL,
+	CONSTRAINT funcionarioviagem_pk PRIMARY KEY (id_funcionarioviagem));
+
+COMMENT ON TABLE funcionarioviagem IS 'Tabela que relaciona os funcionários às viagens realizadas, permitindo saber em quais viagens um funcionário foi.';
+COMMENT ON COLUMN funcionarioviagem.id_funcionarioviagem IS 'Id da tabela funcionário viagem (chave primária).';
+COMMENT ON COLUMN funcionarioviagem.cd_funcionario IS 'Referencia o código do funcionário na tabela funcionario';
+COMMENT ON COLUMN funcionarioviagem.cd_viagem IS 'Referencia o código da viagem na tabela viagem';
+
+
+-- tabela manutencao
+
+CREATE TABLE manutencao (
+	id_manutencao SERIAL NOT NULL,
+	tx_descricao varchar(1000) NOT NULL,
+	cd_status int4 NOT NULL CHECK(cd_status IN (0, 1, 2, 3, 4)),
+	dt_realizacao date NOT NULL,
+	vl_custo numeric(10, 2) NOT NULL,
+	cd_locomotiva int4,
+	cd_vagao int4,
+	cd_ferrovia int4,
+	CONSTRAINT manutencao_pk PRIMARY KEY (id_manutencao)
+);
+
+COMMENT ON TABLE manutencao IS 'Tabela de controle das manutenções';
+COMMENT ON COLUMN manutencao.id_manutencao IS 'Id da tabela manutenção (chave primária)';
+COMMENT ON COLUMN manutencao.tx_descricao IS 'Descrição dos problemas encontrados e de itens que passaram por manutenção';
+COMMENT ON COLUMN manutencao.cd_status IS 'Código que determina o status da manutenção:
+0 - Programada
+1 - Em andamento
+2 - Em pausa
+3 - Concluída
+4 - Cancelada';
+COMMENT ON COLUMN manutencao.dt_realizacao IS 'Data de realização da manutenção';
+COMMENT ON COLUMN manutencao.vl_custo IS 'Custo do item da manutenção';
+COMMENT ON COLUMN manutencao.cd_locomotiva IS 'Código da locomotiva: referencia o id da locomotiva';
+COMMENT ON COLUMN manutencao.cd_vagao IS 'Código da vagao: referencia o id do vagao';
+COMMENT ON COLUMN manutencao.cd_ferrovia IS 'Código da rota: referencia o id da rota, em que a ferrovia esta localizada';
 
 
 -- adição de constraints (foreign keys)
