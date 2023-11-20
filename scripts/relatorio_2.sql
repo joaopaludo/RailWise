@@ -1,13 +1,19 @@
 /*
- * Relação de viagem(origem, destino, data e horário) realizadas em 2023. Ordene o relatório da viagem mais antiga para a mais recente;
+ * Relatório 2
+ * 
+ * Relação de viagens(origem, destino, data e horário) realizadas em 2023. Ordene o relatório da
+ * viagem mais antiga para a mais recente;
  */
 
-SELECT origem.tx_nome estacao_origem, origem.tx_cidade cidade_origem,
-destino.tx_nome estacao_destino, destino.tx_cidade cidade_destino, 
-v.dt_momentosaida data_saida, v.dt_momentochegada data_chegada
-FROM viagem v
-INNER JOIN rota r ON r.id_rota = v.cd_rota
-INNER JOIN estacao origem ON origem.id_estacao = r.cd_estacaoorigem 
-INNER JOIN estacao destino ON destino.id_estacao = r.cd_estacaodestino
-WHERE EXTRACT('year' FROM v.dt_momentosaida) = 2023
-ORDER BY v.dt_momentosaida ASC;
+create or replace view relatorio_viagens_2023 as
+select origem.tx_nome || ' - Cidade: ' || origem.tx_cidade as origem,
+	   destino.tx_nome || ' - Cidade: ' || destino.tx_cidade as destino,
+	   v.dt_inicio as saida,
+	   v.dt_fim as chegada
+from viagem v
+inner join viagemrota vr on vr.cd_viagem = v.id_viagem
+inner join rota r on r.id_rota = vr.cd_rota
+inner join estacao origem on origem.id_estacao = r.cd_estacaoorigem
+inner join estacao destino on destino.id_estacao = r.cd_estacaodestino
+where extract('year' from v.dt_inicio) = 2023
+order by dt_inicio asc;
