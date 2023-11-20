@@ -1,13 +1,13 @@
 
 -- usuários
 
-create user joaop with login password 'h*XQynY8m';
+create user joao with login password 'h*XQynY8m';
 
 create user gabriel with login password 'f}ZQvnr6K';
 
-create user luis with login password 'bzr*V2Hvg';
-
 create user fabricio with login password 'km5]r2SPG';
+
+create user luis with login password 'bzr*V2Hvg';
 
 
 create user default_user with login password '_user_psswrd_railwise_1';
@@ -40,7 +40,7 @@ create group usuario_basico;
 
 grant insert, update, select
 on carga, cliente, contato, funcionarioviagem, manutencao, rota, viagem, viagemrota, viagemvagao
-to usuario_basico
+to usuario_basico;
 
 
 grant usuario_basico to default_user;
