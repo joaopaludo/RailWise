@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION public.distancia_minima_estacoes(origem int4, destino int4)
 	RETURNS numeric
 	LANGUAGE sql
-AS $$
+AS $body$
 	WITH RECURSIVE rota_distancia AS (
 		SELECT r.id_rota, r.cd_estacaoorigem, r.cd_estacaodestino, vl_distancia::NUMERIC, 0 AS lvl, ARRAY[r.cd_estacaoorigem] AS estacoes
 		FROM rota r
@@ -17,5 +17,5 @@ AS $$
 	WHERE rd.cd_estacaoorigem = origem AND rd.cd_estacaodestino = destino
 	ORDER BY rd.vl_distancia ASC, rd.lvl ASC
 	LIMIT 1;
-$$
+$body$
 ;
