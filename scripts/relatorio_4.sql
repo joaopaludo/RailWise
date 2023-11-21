@@ -1,5 +1,9 @@
 /*
- * Relação das viagens, a quantidade de carga total e o valor total(R$). Relacionar somente viagens com valores totais superiores a R$ 4500, realizadas entre 2010 e 2021. Ordene o relatório da viagem com maior valor para a viagem com menor valor.
+ * Relatório 4
+ * 
+ * Relação das viagens, a quantidade de carga total e o valor total(R$). Relacionar somente viagens com valores
+ * totais superiores a R$ 4500, realizadas entre 2010 e 2021. Ordene o relatório da viagem com maior valor para a
+ * viagem com menor valor.
  */
 
 SELECT v.id_viagem, SUM(v3.vl_peso) qtd_carga, SUM(r.vl_distancia * v2.vl_custoporkm) valor_total, TO_CHAR(v.dt_momentosaida, 'DD-MM-YYYY') data_viagem
@@ -11,3 +15,9 @@ WHERE EXTRACT('Year' FROM v.dt_momentosaida) BETWEEN 2010 AND 2021
 GROUP BY v.id_viagem
 HAVING SUM(r.vl_distancia * v2.vl_custoporkm) > 4500
 ORDER BY valor_total DESC;
+
+/*
+select v.id_viagem as viagem, sum(c.vl_peso) as "carga total",
+	   sum(distancia_minima_estacoes(estacao origem, estacao destino) * custoporkm) as "valor total",
+	   to_char(v.dt_inicio, 'DD-MM-YYYY') as "data da viagem"
+*/
