@@ -1,6 +1,6 @@
 -- 2023/2
 -- 08/11/2023 -> Gerado
--- 12/11/2023 -> Editado
+-- 21/11/2023 -> Editado
 
 
 -- Criação do banco de dados
@@ -227,6 +227,8 @@ CREATE TABLE viagem (
 	cd_locomotiva int4 NOT NULL,
 	dt_inicio timestamp,
 	dt_fim timestamp,
+	cd_estacaoorigem int4 NOT NULL,
+	cd_estacaodestino int4 NOT NULL,
 	CONSTRAINT viagem_pk PRIMARY KEY (id_viagem)
 );
 
@@ -235,14 +237,15 @@ COMMENT ON COLUMN viagem.id_viagem IS 'Id da tabela viagem (chave primária)';
 COMMENT ON COLUMN viagem.cd_locomotiva IS 'Código da locomotiva que fez ou fará uma determinada viagem.';
 COMMENT ON COLUMN viagem.dt_inicio IS 'Data de início da viagem (saída da primeira estação)';
 COMMENT ON COLUMN viagem.dt_fim IS 'Data de fim da viagem (chegada na última estação).';
+COMMENT ON COLUMN viagem.cd_estacaoorigem IS 'Código da estação origem da viagem (onde a viagem inicia).';
+COMMENT ON COLUMN viagem.cd_estacaodestino IS 'Código da estação de destino (onde a viagem termina).';
 
 
 -- tabela viagemrota
 
 CREATE TABLE viagemrota (
 	id_viagemrota SERIAL NOT NULL,
-	cd_rota int4 NOT NULL,
-	cd_viagem int4 NOT NULL,
+	cd_rota int4 NOT NULL, cd_viagem int4 NOT NULL,
 	dt_momentosaida timestamp,
 	dt_momentochegada timestamp,
 	CONSTRAINT viagemrota_pk PRIMARY KEY (id_viagemrota)
@@ -341,3 +344,5 @@ ALTER TABLE manutencao ADD CONSTRAINT FKmanutencao192529 FOREIGN KEY (cd_ferrovi
 ALTER TABLE viagemrota ADD CONSTRAINT FKviagemrota253688 FOREIGN KEY (cd_rota) REFERENCES rota (id_rota);
 ALTER TABLE viagemrota ADD CONSTRAINT FKviagemrota854197 FOREIGN KEY (cd_viagem) REFERENCES viagem (id_viagem);
 ALTER TABLE viagemvagao ADD CONSTRAINT FKviagemvaga445439 FOREIGN KEY (cd_viagem) REFERENCES viagem (id_viagem);
+ALTER TABLE viagem ADD CONSTRAINT FKviagem338997 FOREIGN KEY (cd_estacaoorigem) REFERENCES estacao (id_estacao);
+ALTER TABLE viagem ADD CONSTRAINT FKviagem852499 FOREIGN KEY (cd_estacaodestino) REFERENCES estacao (id_estacao);

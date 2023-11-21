@@ -5,7 +5,7 @@
  * viagem mais antiga para a mais recente;
  */
 
-create or replace view relatorio_viagens_2023 as
+create or replace view relatorio_viagens_2023_vw as
 select origem.tx_nome || ' - Cidade: ' || origem.tx_cidade as origem,
 	   destino.tx_nome || ' - Cidade: ' || destino.tx_cidade as destino,
 	   v.dt_inicio as saida,
