@@ -6,18 +6,16 @@
  * viagem com menor valor.
  */
 
-SELECT v.id_viagem, SUM(v3.vl_peso) qtd_carga, SUM(r.vl_distancia * v2.vl_custoporkm) valor_total, TO_CHAR(v.dt_momentosaida, 'DD-MM-YYYY') data_viagem
-FROM viagem v
-INNER JOIN rota r ON r.id_rota = v.cd_rota
-INNER JOIN viagemvagao v2 ON v2.cd_viagem = v.id_viagem
-INNER JOIN vagao v3 ON v3.id_vagao = v2.cd_vagao
-WHERE EXTRACT('Year' FROM v.dt_momentosaida) BETWEEN 2010 AND 2021
-GROUP BY v.id_viagem
-HAVING SUM(r.vl_distancia * v2.vl_custoporkm) > 4500
-ORDER BY valor_total DESC;
-
-/*
+create or replace view viagens_carga_valor_total_vw as
 select v.id_viagem as viagem, sum(c.vl_peso) as "carga total",
-	   sum(distancia_minima_estacoes(estacao origem, estacao destino) * custoporkm) as "valor total",
+	   sum(distancia_minima_estacoes(v.cd_estacaoorigem, v.cd_estacaodestino) * vv.vl_custoporkm) as "valor total",
 	   to_char(v.dt_inicio, 'DD-MM-YYYY') as "data da viagem"
-*/
+from viagem v
+inner join viagemrota vr on vr.cd_viagem = v.id_viagem
+inner join rota r on r.id_rota = vr.cd_rota
+inner join viagemvagao vv on vv.cd_viagem = v.id_viagem
+inner join carga c on c.id_carga = vv.cd_carga
+where extract('year' from v.dt_inicio) between 2010 and 2021
+group by v.id_viagem
+having sum(distancia_minima_estacoes(v.cd_estacaoorigem, v.cd_estacaodestino) * vv.vl_custoporkm) > 4500
+order by "valor total" desc;
