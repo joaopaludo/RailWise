@@ -2,34 +2,42 @@ package br.edu.unoesc.railwise.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "funcionario")
-@SequenceGenerator(name = "funcionario_id_funcionario_seq", sequenceName = "funcionario_id_funcionario_seq", allocationSize = 100)
+@Data
 public class Funcionario implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "funcionario_id_funcionario_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_funcionario")
     private Long id_funcionario;
 
     @NotNull
     @ManyToOne(targetEntity = TipoFuncionario.class)
-    private Long cd_tipofuncionario;
+    @JoinColumn(name = "cd_tipofuncionario", referencedColumnName = "id_tipofuncionario")
+    private TipoFuncionario tipoFuncionario;
 
     @ManyToOne(targetEntity = Estacao.class)
-    private Long cd_estacao;
+    @JoinColumn(name = "cd_estacao", referencedColumnName = "id_estacao")
+    private Estacao estacao;
 
     @NotNull
+    @Column(name = "tx_nome")
     private String tx_nome;
 
     @NotNull
+    @Column(name = "tx_cpf")
     private String tx_cpf;
 
     @NotNull
+    @Column(name = "dt_nascimento")
     private Timestamp dt_nascimento;
 
     @NotNull
+    @Column(name = "vl_salario")
     private Double vl_salario;
 }

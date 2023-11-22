@@ -1,24 +1,31 @@
 package br.edu.unoesc.railwise.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.io.Serializable;
 
 @Entity
 @Table(name = "viagemvagao")
-@SequenceGenerator(name = "viagemvagao_id_viagemvagao_seq", sequenceName = "viagemvagao_id_viagemvagao_seq", allocationSize = 100)
+@Data
 public class ViagemVagao implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "viagemvagao_id_viagemvagao_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_viagemvagao")
     private Long id_viagemvagao;
 
     @ManyToOne(targetEntity = Viagem.class)
-    private Long cd_viagem;
+    @JoinColumn(name = "cd_viagem", referencedColumnName = "id_viagem")
+    private Viagem viagem;
 
     @ManyToOne(targetEntity = Vagao.class)
-    private Long cd_vagao;
+    @JoinColumn(name = "cd_vagao", referencedColumnName = "id_vagao")
+    private Vagao vagao;
 
     @ManyToOne(targetEntity = Carga.class)
-    private Long cd_carga;
+    @JoinColumn(name = "cd_carga", referencedColumnName = "id_carga")
+    private Carga carga;
 
+    @Column(name = "vl_custoporkm")
     private Double vl_custoporkm;
 }

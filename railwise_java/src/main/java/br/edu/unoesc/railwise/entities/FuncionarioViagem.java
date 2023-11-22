@@ -1,20 +1,34 @@
 package br.edu.unoesc.railwise.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "funcionarioviagem")
-@SequenceGenerator(name = "funcionarioviagem_id_funcionarioviagem_seq", sequenceName = "funcionarioviagem_id_funcionarioviagem_seq", allocationSize = 100)
+@Data
 public class FuncionarioViagem implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "funcionarioviagem_id_funcionarioviagem_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_funcionarioviagem")
     private Long id_funcionarioviagem;
 
-    @OneToMany(targetEntity = Funcionario.class)
+    @NotNull
+    @Column(name = "cd_funcionario")
     private Long cd_funcionario;
 
-    @Id
-    @OneToMany(targetEntity = Viagem.class)
+    @OneToMany(targetEntity = Funcionario.class)
+    @JoinColumn(name = "id_funcionario", referencedColumnName = "cd_funcionario")
+    private List<Funcionario> funcionarios;
+
+    @NotNull
+    @Column(name = "cd_viagem")
     private Long cd_viagem;
+
+    @OneToMany(targetEntity = Viagem.class)
+    @JoinColumn(name = "id_viagem", referencedColumnName = "cd_viagem")
+    private List<Viagem> viagens;
 }
