@@ -33,11 +33,11 @@ public class Estacao implements Serializable {
     @Column(name = "tx_endereco")
     private String tx_endereco;
 
-    @Column(name = "hr_inicioexpediente::time without time zone")
+    @Column(name = "hr_inicioexpediente", columnDefinition = "time without time zone")
     @Temporal(TemporalType.TIME)
     private Time hr_inicioexpediente;
 
-    @Column(name = "hr_finalexpediente::time without time zone")
+    @Column(name = "hr_finalexpediente", columnDefinition = "time without time zone")
     @Temporal(TemporalType.TIME)
     private Time hr_finalexpediente;
 

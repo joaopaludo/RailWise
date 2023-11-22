@@ -1,5 +1,7 @@
 package br.edu.unoesc.railwise.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +21,13 @@ public class EstacaoController {
         Estacao estacao = estacaoRepository.findById(id).get();
 
         return estacao;
+    }
+
+    @GetMapping()
+    public List<Estacao> getEstacoes() {
+        List<Estacao> listaEstacoes = estacaoRepository.findAll();
+
+        return listaEstacoes;
     }
 
     @PostMapping(value = "cadastro")
