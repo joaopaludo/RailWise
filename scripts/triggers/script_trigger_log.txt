@@ -1,0 +1,44 @@
+-- Trigger logs auditoria
+
+create or replace function public.criar_log()
+returns trigger
+as
+$body$
+declare
+	descricao varchar(5000) = '';
+begin
+	if (TG_OP = 'INSERT') then
+		descricao := 'Operação: ' || TG_OP || ' - Tabela: ' || TG_RELNAME || ' - Usuário: ' || user  || ' - NEW: ' || new::text;
+		INSERT INTO log(tx_descricao) VALUES (descricao);
+		return new;
+	elsif (TG_OP = 'UPDATE') then
+		descricao := 'Operação: ' || TG_OP || ' - Tabela: ' || TG_RELNAME || ' - Usuário: ' || user  || ' - NEW: ' || new::text || ' - OLD: ' || old::text;
+		INSERT INTO log(tx_descricao) VALUES (descricao);
+		return new;
+	else
+		descricao := 'Operação: ' || TG_OP || ' - Tabela: ' || TG_RELNAME || ' - Usuário: ' || user  || ' - OLD: ' || old::text;
+		INSERT INTO log(tx_descricao) VALUES (descricao);
+		return old;
+	end if;
+end
+$body$
+language plpgsql;
+
+
+create or replace trigger viagem_bf_tg
+before insert or update or delete
+on viagem
+for each row
+execute procedure criar_log();
+
+create or replace trigger manutencao_bf_tg
+before insert or update or delete
+on manutencao
+for each row
+execute procedure criar_log();
+
+create or replace trigger carga_bf_tg
+before insert or update or delete
+on carga
+for each row
+execute procedure criar_log();
