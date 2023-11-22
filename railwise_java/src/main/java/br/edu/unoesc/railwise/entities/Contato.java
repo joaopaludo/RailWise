@@ -6,6 +6,8 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "contato")
 @Data
@@ -26,6 +28,7 @@ public class Contato implements Serializable {
     @NotNull
     @ManyToOne(targetEntity = Cliente.class)
     @JoinColumn(name = "cd_cliente", referencedColumnName = "id_cliente")
+    @JsonIgnore
     private Cliente cliente;
 
 }

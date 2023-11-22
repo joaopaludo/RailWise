@@ -6,11 +6,13 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "cliente")
 @Data
 public class Cliente implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
@@ -31,4 +33,7 @@ public class Cliente implements Serializable {
     @NotNull
     @Column(name = "cd_status")
     private Long cd_status;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Contato> contatos;
 }
