@@ -1,0 +1,28 @@
+/*
+ * Função para verificar se a data de término de uma viagem a ser gravada é posterior à data
+ * de início informada para a viagem
+ * 
+ * Também não permite salvar viagem com data de término mas sem data de início
+ */
+
+create or replace function public.verifica_data_viagem()
+returns trigger
+as
+$body$
+begin
+	if (new.dt_fim < new.dt_inicio) then
+		raise exception 'A data final da viagem não pode ser anterior ao início da mesma.';
+	elsif (new.dt_fim is not null and new.dt_inicio is null) then
+		raise exception 'A viagem não pode ter data final sem ter data inicial.';
+	end if;
+	return new;
+end
+$body$
+language plpgsql;
+
+
+create or replace trigger data_viagem_bf_tg
+before insert or update
+on viagem
+for each row
+execute procedure verifica_data_viagem();

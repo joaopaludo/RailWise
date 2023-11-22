@@ -1,4 +1,7 @@
--- Trigger logs auditoria
+/*
+ * Função para gerar os logs de auditoria ao executar operações nas tabelas viagem,
+ * manutenção e carga 
+ */
 
 create or replace function public.criar_log()
 returns trigger
