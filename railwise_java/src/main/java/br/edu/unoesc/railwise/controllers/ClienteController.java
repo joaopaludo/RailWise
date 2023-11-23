@@ -3,7 +3,6 @@ package br.edu.unoesc.railwise.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,14 +26,14 @@ public class ClienteController {
     public ResponseEntity<Cliente> getCliente(@PathVariable("id") Long id) {
         Cliente cliente = clienteRepository.findById(id).get();
 
-        return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
+        return ResponseEntity.ok(cliente);
     }
 
     @GetMapping()
     public ResponseEntity<List<Cliente>> getClientes() {
         List<Cliente> listaClientes = clienteRepository.findAll();
 
-        return new ResponseEntity<List<Cliente>>(listaClientes, HttpStatus.OK);
+        return ResponseEntity.ok(listaClientes);
     }
 
     @PostMapping(value = "cadastro")
@@ -53,7 +52,7 @@ public class ClienteController {
 
         cliente.setContatos(contatos);
 
-        return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
+        return ResponseEntity.ok(cliente);
     }
 
     @PutMapping(value = "/{id}")
@@ -77,11 +76,11 @@ public class ClienteController {
             contatoRepository.save(contato);
         }
 
-        return new ResponseEntity<Cliente>(clienteBanco, HttpStatus.OK);
+        return ResponseEntity.ok(clienteBanco);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Cliente> deleteCliente(@PathVariable("id") Long id) {
+    public ResponseEntity<Boolean> deleteCliente(@PathVariable("id") Long id) {
         Cliente cliente = clienteRepository.findById(id).get();
 
         // Remove os contatos do cliente
@@ -92,6 +91,6 @@ public class ClienteController {
 
         clienteRepository.delete(cliente);
 
-        return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
+        return ResponseEntity.ok(true);
     }
 }
