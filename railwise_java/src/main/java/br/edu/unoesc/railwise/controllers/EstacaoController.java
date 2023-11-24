@@ -40,25 +40,15 @@ public class EstacaoController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Estacao> putEstacao(@PathVariable("id") Long id, @RequestBody Estacao estacao) {
-        Estacao estacaoBanco = estacaoRepository.findById(id).get();
+        estacao.setId_estacao(id);
+        estacaoRepository.save(estacao);
 
-        estacaoBanco.setTx_nome(estacao.getTx_nome());
-        estacaoBanco.setTx_cidade(estacao.getTx_cidade());
-        estacaoBanco.setTx_uf(estacao.getTx_uf());
-        estacaoBanco.setTx_endereco(estacao.getTx_endereco());
-        estacaoBanco.setHr_inicioexpediente(estacao.getHr_inicioexpediente());
-        estacaoBanco.setHr_finalexpediente(estacao.getHr_finalexpediente());
-
-        estacaoRepository.save(estacaoBanco);
-
-        return ResponseEntity.ok(estacaoBanco);
+        return ResponseEntity.ok(estacao);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Boolean> deleteEstacao(@PathVariable("id") Long id) {
-        Estacao estacao = estacaoRepository.findById(id).get();
-
-        estacaoRepository.delete(estacao);
+        estacaoRepository.deleteById(id);
 
         return ResponseEntity.ok(true);
     }

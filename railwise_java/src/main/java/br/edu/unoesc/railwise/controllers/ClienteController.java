@@ -57,39 +57,18 @@ public class ClienteController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Cliente> putCliente(@PathVariable("id") Long id, @RequestBody Cliente cliente) {
-        Cliente clienteBanco = clienteRepository.findById(id).get();
+        cliente.setId_cliente(id);
 
-        // Remove os contatos do cliente para não dar erro de entidade transiente
-        List<Contato> contatos = cliente.getContatos();
-        cliente.setContatos(null);
+        cliente.getContatos().forEach(contato -> contato.setCliente(cliente));
 
-        clienteBanco.setTx_nome(cliente.getTx_nome());
-        clienteBanco.setTx_documento(cliente.getTx_documento());
-        clienteBanco.setDt_cadastro(cliente.getDt_cadastro());
-        clienteBanco.setCd_status(cliente.getCd_status());
+        clienteRepository.save(cliente);
 
-        clienteRepository.save(clienteBanco);
-
-        // Salva os contatos do cliente
-        for (Contato contato : contatos) {
-            contato.setCliente(clienteBanco);
-            contatoRepository.save(contato);
-        }
-
-        return ResponseEntity.ok(clienteBanco);
+        return ResponseEntity.ok(cliente);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Boolean> deleteCliente(@PathVariable("id") Long id) {
-        Cliente cliente = clienteRepository.findById(id).get();
-
-        // Remove os contatos do cliente
-        List<Contato> contatos = cliente.getContatos();
-        for (Contato contato : contatos) {
-            contatoRepository.delete(contato);
-        }
-
-        clienteRepository.delete(cliente);
+        clienteRepository.deleteById(id);
 
         return ResponseEntity.ok(true);
     }

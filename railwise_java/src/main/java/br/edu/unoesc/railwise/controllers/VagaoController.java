@@ -38,22 +38,16 @@ public class VagaoController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Vagao> putVagao(@PathVariable("id") Long id, @RequestBody Vagao vagao) {
-        Vagao vagaoBanco = vagaoRepository.findById(id).get();
+        vagao.setId_vagao(id);
 
-        vagaoBanco.setTipoVagao(vagao.getTipoVagao());
-        vagaoBanco.setVl_capacidade(vagao.getVl_capacidade());
-        vagaoBanco.setVl_peso(vagao.getVl_peso());
+        vagaoRepository.save(vagao);
 
-        vagaoRepository.save(vagaoBanco);
-
-        return ResponseEntity.ok(vagaoBanco);
+        return ResponseEntity.ok(vagao);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Boolean> deleteVagao(@PathVariable("id") Long id) {
-        Vagao vagao = vagaoRepository.findById(id).get();
-
-        vagaoRepository.delete(vagao);
+        vagaoRepository.deleteById(id);
 
         return ResponseEntity.ok(true);
     }

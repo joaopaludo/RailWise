@@ -40,20 +40,15 @@ public class TipoVagaoController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<TipoVagao> putTipoVagao(@PathVariable("id") Long id, @RequestBody TipoVagao tipoVagao) {
-        TipoVagao tipoVagaoBanco = tipoVagaoRepository.findById(id).get();
+        tipoVagao.setId_tipovagao(id);
+        tipoVagaoRepository.save(tipoVagao);
 
-        tipoVagaoBanco.setTx_descricao(tipoVagao.getTx_descricao());
-
-        tipoVagaoRepository.save(tipoVagaoBanco);
-
-        return ResponseEntity.ok(tipoVagaoBanco);
+        return ResponseEntity.ok(tipoVagao);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Boolean> deleteTipoVagao(@PathVariable("id") Long id) {
-        TipoVagao tipoVagao = tipoVagaoRepository.findById(id).get();
-
-        tipoVagaoRepository.delete(tipoVagao);
+        tipoVagaoRepository.deleteById(id);
 
         return ResponseEntity.ok(true);
     }
