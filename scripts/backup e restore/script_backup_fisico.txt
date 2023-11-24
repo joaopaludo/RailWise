@@ -1,0 +1,13 @@
+
+set inicio=%date:~10,4%-%date:~7,2%-%date:~4,2%_%time:~0,2%-%time:~3,2%-%time:~6,2%
+set data=%date:~10,4%%date:~7,2%%date:~4,2%
+
+net stop postgresql
+
+// provisional
+winrar a -afzip arquivo_teste.zip * -ep
+
+net start postgresql
+
+echo Rotina iniciou em: %inicio%
+echo Rotina terminou em: %date:~10,4%-%date:~7,2%-%date:~4,2%_%time:~0,2%-%time:~3,2%-%time:~6,2%

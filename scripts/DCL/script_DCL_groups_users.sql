@@ -58,3 +58,11 @@ to gerente;
 
 
 grant gerente to manager_user;
+
+
+
+-- usuário para backup
+
+create user backup_user with login password '_railwise_backup';
+
+grant select on all tables in schema public to backup_user;
