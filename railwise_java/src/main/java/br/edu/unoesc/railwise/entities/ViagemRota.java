@@ -7,6 +7,8 @@ import lombok.Data;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "viagemrota")
 @Data
@@ -24,6 +26,7 @@ public class ViagemRota implements Serializable {
     @NotNull
     @ManyToOne(targetEntity = Viagem.class)
     @JoinColumn(name = "cd_viagem", referencedColumnName = "id_viagem")
+    @JsonIgnore
     private Viagem viagem;
 
     @Column(name = "dt_momentosaida")

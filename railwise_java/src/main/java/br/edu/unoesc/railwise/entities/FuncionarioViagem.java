@@ -5,7 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "funcionarioviagem")
@@ -17,18 +18,13 @@ public class FuncionarioViagem implements Serializable {
     private Long id_funcionarioviagem;
 
     @NotNull
-    @Column(name = "cd_funcionario")
-    private Long cd_funcionario;
-
-    @OneToMany(targetEntity = Funcionario.class)
-    @JoinColumn(name = "id_funcionario", referencedColumnName = "cd_funcionario")
-    private List<Funcionario> funcionarios;
+    @ManyToOne(targetEntity = Funcionario.class)
+    @JoinColumn(name = "cd_funcionario", referencedColumnName = "id_funcionario")
+    private Funcionario funcionario;
 
     @NotNull
-    @Column(name = "cd_viagem")
-    private Long cd_viagem;
-
-    @OneToMany(targetEntity = Viagem.class)
-    @JoinColumn(name = "id_viagem", referencedColumnName = "cd_viagem")
-    private List<Viagem> viagens;
+    @ManyToOne(targetEntity = Viagem.class)
+    @JoinColumn(name = "cd_viagem", referencedColumnName = "id_viagem")
+    @JsonIgnore
+    private Viagem viagem;
 }
