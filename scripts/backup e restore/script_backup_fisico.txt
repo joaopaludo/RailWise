@@ -1,13 +1,38 @@
+@echo off
+pushd "%temp%"
+makecab /D RptFileName=~.rpt /D InfFileName=~.inf /f nul >nul
+for /f "tokens=3-7" %a in ('find /i "makecab"^<~.rpt') do (
+set "current-date=%e-%b-%c"
+set "current-time=%d"
+)
+del ~.*
+popd
 
-set inicio=%date:~10,4%-%date:~7,2%-%date:~4,2%_%time:~0,2%-%time:~3,2%-%time:~6,2%
-set data=%date:~10,4%%date:~7,2%%date:~4,2%
+set inicio=%current-date%_%current-time%
+set data=%current-date%
 
 net stop postgresql
 
-// provisional
-winrar a -afzip arquivo_teste.zip * -ep
+cd C:\Program Files\PostgreSQL\15\data\base
+mkdir railwise_bkp_%data%
+
+cd C:\Program Files\PostgreSQL\15\data\base\43568
+winrar a -afzip backup_%data%.zip * -ep
+
+move ./backup_%data%.zip ../railwise_bkp_%data%/backup_%data%.zip
 
 net start postgresql
 
+
+@echo off
+pushd "%temp%"
+makecab /D RptFileName=~.rpt /D InfFileName=~.inf /f nul >nul
+for /f "tokens=3-7" %a in ('find /i "makecab"^<~.rpt') do (
+set "current-date=%e-%b-%c"
+set "current-time=%d"
+)
+del ~.*
+popd
+
 echo Rotina iniciou em: %inicio%
-echo Rotina terminou em: %date:~10,4%-%date:~7,2%-%date:~4,2%_%time:~0,2%-%time:~3,2%-%time:~6,2%
+echo Rotina terminou em: %current-date%_%current-time%
