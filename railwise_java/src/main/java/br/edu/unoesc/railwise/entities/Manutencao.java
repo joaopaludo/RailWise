@@ -1,11 +1,20 @@
 package br.edu.unoesc.railwise.entities;
 
-import jakarta.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-
-import java.io.Serializable;
-import java.sql.Date;
 
 @Entity
 @Table(name = "manutencao")
@@ -26,7 +35,8 @@ public class Manutencao implements Serializable {
 
     @NotNull
     @Column(name = "dt_realizacao")
-    private Date dt_realizacao;
+    @Temporal(TemporalType.DATE)
+    private LocalDate dt_realizacao;
 
     @NotNull
     @Column(name = "vl_custo")
