@@ -1,0 +1,5 @@
+br.edu.unoesc.railwise
+br.edu.unoesc.railwise.controllers
+br.edu.unoesc.railwise.entities
+br.edu.unoesc.railwise.entities.relatorios
+br.edu.unoesc.railwise.repositories
