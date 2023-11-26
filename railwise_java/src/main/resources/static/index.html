@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>RailWise</title>
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
+		defer></script>
+
+	<link rel="stylesheet" href="styles.css">
+
+	<script src="script.js"></script>
+</head>
+
+<body>
+
+	<div class="inicio">
+		<section class="hero">
+			<h1 class="titulo">RailWise</h1>
+		</section>
+
+		<button type="button" class="btn btn-primary btn-relatorio" id="btExibir"
+			onclick="exibirRelatorios()">Relatórios</button>
+
+		<div id="apresentacao">
+			<p>Railwise é um sistema para o gerenciamento de linhas ferroviárias para o transporte de cargas.</p>
+
+			<h3>Gestão de vagões e locomotivas:</h3>
+			<p>Possibilita cadastrar e gerenciar novos vagões e trens, este cadastro é necessário para realizar uma
+				contratação de carga, onde só se pode atribuir vagões e trens a rotas caso estes já estiverem
+				cadastrados. Aqui também ocorre a vinculação dos trens as cargas, onde é definido que um determinado
+				trem, efetuará o transporte de determinados vagões.</p>
+
+			<h3>Gestão de carga:</h3>
+			<p>Ficam armazenados nesse local informações sobre as cargas que estão sendo ou serão transportadas, esta
+				funcionalidade também controla o peso de cada vagão e a capacidade do trem, para que todos os limites de
+				capacidade sejam respeitados.</p>
+
+			<h3>Gestão de manutenção:</h3>
+			<p>Controla todas as manutenções que estão ocorrendo ou ocorrerão na ferrovia. Permite ao usuário agendar
+				manutenções preventivas e controlar as linhas e os custos das manutenções.</p>
+
+			<h3>Gestão de funcionários:</h3>
+			<p>Permite controlar quais funcionários trabalham em uma estação ou em um trem, e também definir as
+				liberações que cada um vai ter dentro de sistema com base no cargo que o mesmo possui.</p>
+		</div>
+
+		<div id="relatorios" hidden>
+			<section>
+				<h3>Relatório 1</h3>
+				<p>
+					Relação com código da locomotiva, capacidade de carga máxima. Relacionar locomotivas
+					fabricadas a partir de 1990. Ordene o relatório da locomotiva com maior capacidade para a
+					locomotiva com menor capacidade.
+				</p>
+
+				<button type="button" class="btn btn-success" data-bs-toggle="modal" onclick="limparDadosRelatorio()"
+					data-bs-target="#modalExibirRelatorio1">Exibir</button>
+			</section>
+
+			<section class="rel">
+				<h3>Relatório 2</h3>
+				<p>
+					Relação de viagens(origem, destino, data e horário) realizadas em 2023. Ordene o relatório da
+					viagem mais antiga para a mais recente.
+				</p>
+
+				<button type="button" class="btn btn-success" data-bs-toggle="modal" onclick="limparDadosRelatorio()"
+					data-bs-target="#modalExibirRelatorio2">Exibir</button>
+			</section>
+
+			<section class="rel">
+				<h3>Relatório 3</h3>
+				<p>
+					Relação dos top 10 destinos com mais cargas transportadas em 2022.
+				</p>
+
+				<button type="button" class="btn btn-success" data-bs-toggle="modal" onclick="limparDadosRelatorio()"
+					data-bs-target="#modalExibirRelatorio3">Exibir</button>
+			</section>
+
+			<section class="rel">
+				<h3>Relatório 4</h3>
+				<p>
+					Relação das viagens, a quantidade de carga total e o valor total(R$). Relacionar somente viagens com
+					valores
+					totais superiores a R$ 4500, realizadas entre 2010 e 2021. Ordene o relatório da viagem com maior
+					valor para a
+					viagem com menor valor.
+				</p>
+
+				<button type="button" class="btn btn-success" data-bs-toggle="modal" onclick="limparDadosRelatorio()"
+					data-bs-target="#modalExibirRelatorio4">Exibir</button>
+			</section>
+		</div>
+
+		<div class="footer">
+            <p>&copy; 2023 RailWise. Todos os direitos reservados.</p>
+        </div>
+	</div>
+
+	<div class="modal fade" id="modalExibirRelatorio1" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Relatório 1</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+				</div>
+				<div class="modal-body">
+					<button type="button" class="btn btn-secondary" onclick="relatorio1()">Buscar</button>
+				</div>
+				<div style="height:325px; overflow:auto;">
+					<table class="table table-striped" id="tabelaresultados">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">Modelo</th>
+								<th scope="col">Capacidade de carga</th>
+								<th scope="col">Ano de fabricação</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalExibirRelatorio2" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Relatório 2</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+				</div>
+				<div class="modal-body">
+					<button type="button" class="btn btn-secondary" onclick="relatorio2()">Buscar</button>
+				</div>
+				<div style="height:400px; overflow:auto;">
+					<table class="table table-striped" id="tabelaresultados">
+						<thead>
+							<tr>
+								<th scope="col">Origem</th>
+								<th scope="col">Destino</th>
+								<th scope="col">Saída</th>
+								<th scope="col">Chegada</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalExibirRelatorio3" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Relatório 3</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+				</div>
+				<div class="modal-body">
+					<button type="button" class="btn btn-secondary" onclick="relatorio3()">Buscar</button>
+				</div>
+				<div style="height:400px; overflow:auto;">
+					<table class="table table-striped" id="tabelaresultados">
+						<thead>
+							<tr>
+								<th scope="col">Quantidade de cargas</th>
+								<th scope="col">Destino</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalExibirRelatorio4" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Relatório 4</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+				</div>
+				<div class="modal-body">
+					<button type="button" class="btn btn-secondary" onclick="relatorio4()">Buscar</button>
+				</div>
+				<div style="height:300px; overflow:auto;">
+					<table class="table table-striped" id="tabelaresultados">
+						<thead>
+							<tr>
+								<th scope="col">Viagem</th>
+								<th scope="col">Carga total</th>
+								<th scope="col">Valor total</th>
+								<th scope="col">Data da viagem</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

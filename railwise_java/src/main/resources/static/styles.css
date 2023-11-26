@@ -1,0 +1,64 @@
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+}
+
+.hero {
+	background-color: #f4f4f4;
+	padding: 30px;
+	text-align: left;
+}
+
+.hero .titulo {
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 45px;
+	color: #3D3D3D;
+	font-weight: 700;
+}
+
+.btn-relatorio {
+	margin-left: 40px;
+	margin-top: 20px;
+}
+
+#relatorios {
+	margin-left: 50px;
+	margin-top: 30px;
+}
+
+.rel {
+	margin-top: 35px;
+}
+
+.hero h2 {
+	font-size: 24px;
+	color: #555;
+}
+
+#apresentacao {
+	margin: 25px 20px;
+	padding: 20px;
+	text-align: justify;
+}
+
+#apresentacao h3 {
+	font-size: 24px;
+	color: #333;
+	margin-top: 45px;
+}
+
+#apresentacao p {
+	font-size: 18px;
+	color: #555;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+}
