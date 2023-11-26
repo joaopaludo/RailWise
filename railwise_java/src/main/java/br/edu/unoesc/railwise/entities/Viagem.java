@@ -11,28 +11,55 @@ import java.util.List;
 @Table(name = "viagem")
 @Data
 public class Viagem implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_viagem")
-    private Long id_viagem;
 
-    @ManyToOne(targetEntity = Locomotiva.class)
-    @JoinColumn(name = "cd_locomotiva", referencedColumnName = "id_locomotiva")
-    private Locomotiva locomotiva;
+	private static final long serialVersionUID = 1L;
 
-    @Column(name = "dt_inicio")
-    private Timestamp dt_inicio;
+	/**
+	 * {@link Long} que representa o id da viagem
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_viagem")
+	private Long id_viagem;
 
-    @Column(name = "dt_fim")
-    private Timestamp dt_fim;
+	/**
+	 * {@link Locomotiva} que realizou / realizará a viagem
+	 */
+	@ManyToOne(targetEntity = Locomotiva.class)
+	@JoinColumn(name = "cd_locomotiva", referencedColumnName = "id_locomotiva")
+	private Locomotiva locomotiva;
 
-    @OneToMany(mappedBy = "viagem", targetEntity = FuncionarioViagem.class, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<FuncionarioViagem> funcionarioViagem;
+	/**
+	 * {@link Timestamp} representando a data e hora de início da viagem
+	 */
+	@Column(name = "dt_inicio")
+	private Timestamp dt_inicio;
 
-    @OneToMany(mappedBy = "viagem", targetEntity = ViagemVagao.class, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ViagemVagao> viagemVagao;
+	/**
+	 * {@link Timestamp} representando a data e hora de término da viagem
+	 */
+	@Column(name = "dt_fim")
+	private Timestamp dt_fim;
 
-    @OneToMany(mappedBy = "viagem", targetEntity = ViagemRota.class, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ViagemRota> viagemRota;
+	/**
+	 * Lista de {@link FuncionarioViagem} para relacionar funcionários que foram ou
+	 * irão em uma viagem
+	 */
+	@OneToMany(mappedBy = "viagem", targetEntity = FuncionarioViagem.class, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<FuncionarioViagem> funcionarioViagem;
+
+	/**
+	 * Lista de {@link ViagemVagao} para relacionar vagões que foram ou serão
+	 * transportados em uma viagem
+	 */
+	@OneToMany(mappedBy = "viagem", targetEntity = ViagemVagao.class, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<ViagemVagao> viagemVagao;
+
+	/**
+	 * Lista de {@link ViagemRota} para relacionar rotas que foram ou serão
+	 * percorridas em uma viagem
+	 */
+	@OneToMany(mappedBy = "viagem", targetEntity = ViagemRota.class, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<ViagemRota> viagemRota;
 
 }

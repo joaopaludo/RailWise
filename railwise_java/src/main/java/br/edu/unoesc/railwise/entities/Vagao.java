@@ -10,21 +10,36 @@ import java.io.Serializable;
 @Table(name = "vagao")
 @Data
 public class Vagao implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vagao")
-    private Long id_vagao;
 
-    @NotNull
-    @ManyToOne(targetEntity = TipoVagao.class)
-    @JoinColumn(name = "cd_tipovagao", referencedColumnName = "id_tipovagao")
-    private TipoVagao tipoVagao;
+	private static final long serialVersionUID = 1L;
 
-    @NotNull
-    @Column(name = "vl_capacidade")
-    private Double vl_capacidade;
+	/**
+	 * {@link Long} que representa o id do vagão
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_vagao")
+	private Long id_vagao;
 
-    @NotNull
-    @Column(name = "vl_peso")
-    private Double vl_peso;
+	/**
+	 * {@link TipoVagao} representando o tipo do vagão
+	 */
+	@NotNull
+	@ManyToOne(targetEntity = TipoVagao.class)
+	@JoinColumn(name = "cd_tipovagao", referencedColumnName = "id_tipovagao")
+	private TipoVagao tipoVagao;
+
+	/**
+	 * Valor {@link Double} que representa a capacidade do vagão em quilogramas
+	 */
+	@NotNull
+	@Column(name = "vl_capacidade")
+	private Double vl_capacidade;
+
+	/**
+	 * Valor {@link Double} que representa o peso do vagão em quilogramas
+	 */
+	@NotNull
+	@Column(name = "vl_peso")
+	private Double vl_peso;
 }

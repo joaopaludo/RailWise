@@ -10,31 +10,53 @@ import java.io.Serializable;
 @Table(name = "carga")
 @Data
 public class Carga implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_carga")
-    private Long id_carga;
 
-    @NotNull
-    @Column(name = "tx_descricao")
-    private String tx_descricao;
+	private static final long serialVersionUID = 1L;
 
-    @NotNull
-    @ManyToOne(targetEntity = Estacao.class)
-    @JoinColumn(name = "cd_estacaoorigem", referencedColumnName = "id_estacao")
-    private Estacao estacaoOrigem;
+	/**
+	 * {@link Long} que representa o id da carga
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_carga")
+	private Long id_carga;
 
-    @NotNull
-    @ManyToOne(targetEntity = Estacao.class)
-    @JoinColumn(name = "cd_estacaodestino", referencedColumnName = "id_estacao")
-    private Estacao estacaoDestino;
+	/**
+	 * {@link String} com a descrição do que compõe a carga
+	 */
+	@NotNull
+	@Column(name = "tx_descricao")
+	private String tx_descricao;
 
-    @NotNull
-    @ManyToOne(targetEntity = Cliente.class)
-    @JoinColumn(name = "cd_cliente", referencedColumnName = "id_cliente")
-    private Cliente cliente;
+	/**
+	 * Objeto de {@link Estacao} que representa a estação de origem da carga
+	 */
+	@NotNull
+	@ManyToOne(targetEntity = Estacao.class)
+	@JoinColumn(name = "cd_estacaoorigem", referencedColumnName = "id_estacao")
+	private Estacao estacaoOrigem;
 
-    @NotNull
-    @Column(name = "vl_peso")
-    private Double vl_peso;
+	/**
+	 * Objeto de {@link Estacao} que representa a estação de destino da carga
+	 */
+	@NotNull
+	@ManyToOne(targetEntity = Estacao.class)
+	@JoinColumn(name = "cd_estacaodestino", referencedColumnName = "id_estacao")
+	private Estacao estacaoDestino;
+
+	/**
+	 * Objeto de {@link Cliente} que representa o cliente que requisitou o
+	 * transporte da carga
+	 */
+	@NotNull
+	@ManyToOne(targetEntity = Cliente.class)
+	@JoinColumn(name = "cd_cliente", referencedColumnName = "id_cliente")
+	private Cliente cliente;
+
+	/**
+	 * Valor {@link Double} que representa o peso da carga em quilogramas
+	 */
+	@NotNull
+	@Column(name = "vl_peso")
+	private Double vl_peso;
 }

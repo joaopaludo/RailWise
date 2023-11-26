@@ -12,33 +12,59 @@ import lombok.Data;
 @Table(name = "estacao")
 @Data
 public class Estacao implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_estacao")
-    private Long id_estacao;
 
-    @NotNull
-    @Column(name = "tx_nome")
-    private String tx_nome;
+	private static final long serialVersionUID = 1L;
 
-    @NotNull
-    @Column(name = "tx_cidade")
-    private String tx_cidade;
+	/**
+	 * {@link Long} que representa o id da estação
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_estacao")
+	private Long id_estacao;
 
-    @NotNull
-    @Column(name = "tx_uf")
-    private String tx_uf;
+	/**
+	 * {@link String} representando o nome da estação
+	 */
+	@NotNull
+	@Column(name = "tx_nome")
+	private String tx_nome;
 
-    @NotNull
-    @Column(name = "tx_endereco")
-    private String tx_endereco;
+	/**
+	 * {@link String} representando o nome da cidade onde se localiza a estação
+	 */
+	@NotNull
+	@Column(name = "tx_cidade")
+	private String tx_cidade;
 
-    @Column(name = "hr_inicioexpediente", columnDefinition = "time without time zone")
-    @Temporal(TemporalType.TIME)
-    private Time hr_inicioexpediente;
+	/**
+	 * {@link String} representando a sigla da UF onde se encontra a estação
+	 */
+	@NotNull
+	@Column(name = "tx_uf")
+	private String tx_uf;
 
-    @Column(name = "hr_finalexpediente", columnDefinition = "time without time zone")
-    @Temporal(TemporalType.TIME)
-    private Time hr_finalexpediente;
+	/**
+	 * {@link String} que descreve o endereço da estação
+	 */
+	@NotNull
+	@Column(name = "tx_endereco")
+	private String tx_endereco;
+
+	/**
+	 * {@link Time} que representa o horário de início do expediente de trabalho na
+	 * estação
+	 */
+	@Column(name = "hr_inicioexpediente", columnDefinition = "time without time zone")
+	@Temporal(TemporalType.TIME)
+	private Time hr_inicioexpediente;
+
+	/**
+	 * {@link Time} que representa o horário de fim do expediente de trabalho na
+	 * estação
+	 */
+	@Column(name = "hr_finalexpediente", columnDefinition = "time without time zone")
+	@Temporal(TemporalType.TIME)
+	private Time hr_finalexpediente;
 
 }

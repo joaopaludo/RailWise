@@ -11,7 +11,10 @@ import java.sql.Timestamp;
 @Table(name = "log")
 @Data
 public class Log implements Serializable {
-    @Id
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_log")
     private Long id_log;
