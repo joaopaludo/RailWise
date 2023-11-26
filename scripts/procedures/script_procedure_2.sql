@@ -9,7 +9,7 @@ AS $body$
 		
 		UNION ALL
 		
-		SELECT r2.id_rota, rd.cd_estacaoorigem, r2.cd_estacaodestino, rd.vl_distancia + r2.vl_distancia AS vl_distancia, rd.lvl + 1 AS lvl, rd.estacoes || r2.cd_estacaoorigem AS estacoes
+		SELECT r2.id_rota, rd.cd_estacaoorigem, r2.cd_estacaodestino, rd.vl_distancia + r2.vl_distancia::NUMERIC AS vl_distancia, rd.lvl + 1 AS lvl, rd.estacoes || r2.cd_estacaoorigem AS estacoes
 		FROM rota_distancia rd
 		INNER JOIN rota r2 ON r2.cd_estacaoorigem = rd.cd_estacaodestino AND NOT r2.cd_estacaoorigem = ANY(rd.estacoes)
 	)

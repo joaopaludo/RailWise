@@ -7,8 +7,8 @@
  */
 
 create or replace view relatorio_locomotivas_capacidade_vw as
-select l.id_locomotiva "ID", l.tx_modelo "Modelo" , l.vl_capacidadecarga "Capacidade de carga",
-       l.an_anofabricacao "Ano de fabricação"
+select l.id_locomotiva id, l.tx_modelo modelo , l.vl_capacidadecarga capacidade_carga,
+       l.an_anofabricacao ano_fabricacao
 from locomotiva l
 where l.an_anofabricacao >= 1990
 order by l.vl_capacidadecarga desc;
