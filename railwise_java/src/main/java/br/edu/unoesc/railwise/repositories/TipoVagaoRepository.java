@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.unoesc.railwise.entities.TipoVagao;
 
 @Repository
-public interface TipoVagaoRepository extends JpaRepository<TipoVagao, Long> {
+public interface TipoVagaoRepository extends JpaRepository<TipoVagao, Integer> {
 
 }

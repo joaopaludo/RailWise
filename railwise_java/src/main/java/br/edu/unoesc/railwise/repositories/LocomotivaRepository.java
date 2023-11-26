@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.unoesc.railwise.entities.Locomotiva;
 
 @Repository
-public interface LocomotivaRepository extends JpaRepository<Locomotiva, Long> {
+public interface LocomotivaRepository extends JpaRepository<Locomotiva, Integer> {
 
 }

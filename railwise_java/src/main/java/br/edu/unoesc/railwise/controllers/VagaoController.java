@@ -26,75 +26,75 @@ import br.edu.unoesc.railwise.repositories.VagaoRepository;
 @RequestMapping("/vagao")
 public class VagaoController {
 
-	@Autowired
-	private VagaoRepository vagaoRepository;
+    @Autowired
+    private VagaoRepository vagaoRepository;
 
-	/**
-	 * Retorna todos os vagões cadastrados na base
-	 * 
-	 * @return lista de todos os vagões cadastrados
-	 */
-	@GetMapping()
-	public ResponseEntity<List<Vagao>> getVagoes() {
-		List<Vagao> listaVagoes = vagaoRepository.findAll();
+    /**
+     * Retorna todos os vagões cadastrados na base
+     * 
+     * @return lista de todos os vagões cadastrados
+     */
+    @GetMapping()
+    public ResponseEntity<List<Vagao>> getVagoes() {
+        List<Vagao> listaVagoes = vagaoRepository.findAll();
 
-		return ResponseEntity.ok(listaVagoes);
-	}
+        return ResponseEntity.ok(listaVagoes);
+    }
 
-	/**
-	 * Busca um registro de vagão na base pelo id do vagão
-	 * 
-	 * @param id código identificador do vagão a encontrar
-	 * @return registro do vagão que possui o id informado
-	 */
-	@GetMapping(value = "/{id}")
-	@ResponseBody
-	public ResponseEntity<Vagao> getVagao(@PathVariable("id") Long id) {
-		Vagao vagao = vagaoRepository.findById(id).get();
+    /**
+     * Busca um registro de vagão na base pelo id do vagão
+     * 
+     * @param id código identificador do vagão a encontrar
+     * @return registro do vagão que possui o id informado
+     */
+    @GetMapping(value = "/{id}")
+    @ResponseBody
+    public ResponseEntity<Vagao> getVagao(@PathVariable("id") Integer id) {
+        Vagao vagao = vagaoRepository.findById(id).get();
 
-		return ResponseEntity.ok(vagao);
-	}
+        return ResponseEntity.ok(vagao);
+    }
 
-	/**
-	 * Salva um novo registro de vagão
-	 * 
-	 * @param vagao objeto de Vagao com as informações do vagão a salvar
-	 * @return o objeto de Vagao salvo na base
-	 */
-	@PostMapping(value = "cadastro")
-	public ResponseEntity<Vagao> postVagao(@RequestBody Vagao vagao) {
-		vagaoRepository.save(vagao);
+    /**
+     * Salva um novo registro de vagão
+     * 
+     * @param vagao objeto de Vagao com as informações do vagão a salvar
+     * @return o objeto de Vagao salvo na base
+     */
+    @PostMapping(value = "cadastro")
+    public ResponseEntity<Vagao> postVagao(@RequestBody Vagao vagao) {
+        vagaoRepository.save(vagao);
 
-		return ResponseEntity.ok(vagao);
-	}
+        return ResponseEntity.ok(vagao);
+    }
 
-	/**
-	 * Realiza a edição de um registro de vagão já cadastrado
-	 * 
-	 * @param id    código do vagão a editar
-	 * @param vagao objeto de Vagao com as informações a serem gravadas
-	 * @return objeto de Vagao salvo na base
-	 */
-	@PutMapping(value = "/{id}")
-	public ResponseEntity<Vagao> putVagao(@PathVariable("id") Long id, @RequestBody Vagao vagao) {
-		vagao.setId_vagao(id);
+    /**
+     * Realiza a edição de um registro de vagão já cadastrado
+     * 
+     * @param id    código do vagão a editar
+     * @param vagao objeto de Vagao com as informações a serem gravadas
+     * @return objeto de Vagao salvo na base
+     */
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Vagao> putVagao(@PathVariable("id") Integer id, @RequestBody Vagao vagao) {
+        vagao.setId_vagao(id);
 
-		vagaoRepository.save(vagao);
+        vagaoRepository.save(vagao);
 
-		return ResponseEntity.ok(vagao);
-	}
+        return ResponseEntity.ok(vagao);
+    }
 
-	/**
-	 * Exclui um registro de vagão
-	 * 
-	 * @param id código identificador do vagão a ser excluído
-	 * @return retorna um valor booleano -> true para exclusão bem sucedida
-	 */
-	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Boolean> deleteVagao(@PathVariable("id") Long id) {
-		vagaoRepository.deleteById(id);
+    /**
+     * Exclui um registro de vagão
+     * 
+     * @param id código identificador do vagão a ser excluído
+     * @return retorna um valor booleano -> true para exclusão bem sucedida
+     */
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Boolean> deleteVagao(@PathVariable("id") Integer id) {
+        vagaoRepository.deleteById(id);
 
-		return ResponseEntity.ok(true);
-	}
+        return ResponseEntity.ok(true);
+    }
 
 }

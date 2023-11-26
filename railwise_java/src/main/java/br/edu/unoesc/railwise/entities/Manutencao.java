@@ -21,66 +21,66 @@ import lombok.Data;
 @Data
 public class Manutencao implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * {@link Long} que representa o id da manutenção
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_manutencao")
-	private Long id_manutencao;
+    /**
+     * {@link Integer} que representa o id da manutenção
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_manutencao")
+    private Integer id_manutencao;
 
-	/**
-	 * {@link String} com a descrição do que deve ser feito ou foi feito na
-	 * manutenção
-	 */
-	@NotNull
-	@Column(name = "tx_descricao")
-	private String tx_descricao;
+    /**
+     * {@link String} com a descrição do que deve ser feito ou foi feito na
+     * manutenção
+     */
+    @NotNull
+    @Column(name = "tx_descricao")
+    private String tx_descricao;
 
-	/**
-	 * Valor int que representa o código do status da manutenção, sendo: 0 -
-	 * Programada \ 1 - Em andamento \ 2 - Em pausa \ 3 - Concluída \ 4 - Cancelada
-	 * \
-	 */
-	@NotNull
-	@Column(name = "cd_status")
-	private int cd_status;
+    /**
+     * Valor int que representa o código do status da manutenção, sendo: 0 -
+     * Programada \ 1 - Em andamento \ 2 - Em pausa \ 3 - Concluída \ 4 - Cancelada
+     * \
+     */
+    @NotNull
+    @Column(name = "cd_status")
+    private int cd_status;
 
-	/**
-	 * {@link LocalDate} que representa a data de realização da manutenção
-	 */
-	@NotNull
-	@Column(name = "dt_realizacao")
-	@Temporal(TemporalType.DATE)
-	private LocalDate dt_realizacao;
+    /**
+     * {@link LocalDate} que representa a data de realização da manutenção
+     */
+    @NotNull
+    @Column(name = "dt_realizacao")
+    @Temporal(TemporalType.DATE)
+    private LocalDate dt_realizacao;
 
-	/**
-	 * Valor {@link Double} que representa o valor gasto na manutenção
-	 */
-	@NotNull
-	@Column(name = "vl_custo")
-	private Double vl_custo;
+    /**
+     * Valor {@link Double} que representa o valor gasto na manutenção
+     */
+    @NotNull
+    @Column(name = "vl_custo")
+    private Double vl_custo;
 
-	/**
-	 * {@link Locomotiva} que passou pela manutenção
-	 */
-	@ManyToOne(targetEntity = Locomotiva.class)
-	@JoinColumn(name = "cd_locomotiva", referencedColumnName = "id_locomotiva")
-	private Locomotiva locomotiva;
+    /**
+     * {@link Locomotiva} que passou pela manutenção
+     */
+    @ManyToOne(targetEntity = Locomotiva.class)
+    @JoinColumn(name = "cd_locomotiva", referencedColumnName = "id_locomotiva")
+    private Locomotiva locomotiva;
 
-	/**
-	 * {@link Vagao} que passou pela manutenção
-	 */
-	@ManyToOne(targetEntity = Vagao.class)
-	@JoinColumn(name = "cd_vagao", referencedColumnName = "id_vagao")
-	private Vagao vagao;
+    /**
+     * {@link Vagao} que passou pela manutenção
+     */
+    @ManyToOne(targetEntity = Vagao.class)
+    @JoinColumn(name = "cd_vagao", referencedColumnName = "id_vagao")
+    private Vagao vagao;
 
-	/**
-	 * {@link Rota} que passou pela manutenção
-	 */
-	@ManyToOne(targetEntity = Rota.class)
-	@JoinColumn(name = "cd_rota", referencedColumnName = "id_rota")
-	private Rota rota;
+    /**
+     * {@link Rota} que passou pela manutenção
+     */
+    @ManyToOne(targetEntity = Rota.class)
+    @JoinColumn(name = "cd_rota", referencedColumnName = "id_rota")
+    private Rota rota;
 }

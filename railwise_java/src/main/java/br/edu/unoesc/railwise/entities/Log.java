@@ -12,12 +12,12 @@ import java.sql.Timestamp;
 @Data
 public class Log implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_log")
-    private Long id_log;
+    private Integer id_log;
 
     @NotNull
     @Column(name = "tx_descricao")

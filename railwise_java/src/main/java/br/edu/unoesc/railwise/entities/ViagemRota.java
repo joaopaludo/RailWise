@@ -17,44 +17,44 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Data
 public class ViagemRota implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * {@link Long} que representa o id de viagemrota
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_viagemrota")
-	private Long id_viagemrota;
+    /**
+     * {@link Integer} que representa o id de viagemrota
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_viagemrota")
+    private Integer id_viagemrota;
 
-	/**
-	 * {@link Rota} que indica a rota
-	 */
-	@NotNull
-	@ManyToOne(targetEntity = Rota.class)
-	@JoinColumn(name = "cd_rota", referencedColumnName = "id_rota")
-	private Rota rota;
+    /**
+     * {@link Rota} que indica a rota
+     */
+    @NotNull
+    @ManyToOne(targetEntity = Rota.class)
+    @JoinColumn(name = "cd_rota", referencedColumnName = "id_rota")
+    private Rota rota;
 
-	/**
-	 * {@link Viagem} que indica a viagem
-	 */
-	@NotNull
-	@ManyToOne(targetEntity = Viagem.class)
-	@JoinColumn(name = "cd_viagem", referencedColumnName = "id_viagem")
-	@JsonIgnore
-	private Viagem viagem;
+    /**
+     * {@link Viagem} que indica a viagem
+     */
+    @NotNull
+    @ManyToOne(targetEntity = Viagem.class)
+    @JoinColumn(name = "cd_viagem", referencedColumnName = "id_viagem")
+    @JsonIgnore
+    private Viagem viagem;
 
-	/**
-	 * {@link Timestamp} representando a data e hora de saída da locomotiva da
-	 * estação origem da rota
-	 */
-	@Column(name = "dt_momentosaida")
-	private Timestamp dt_momentosaida;
+    /**
+     * {@link Timestamp} representando a data e hora de saída da locomotiva da
+     * estação origem da rota
+     */
+    @Column(name = "dt_momentosaida")
+    private Timestamp dt_momentosaida;
 
-	/**
-	 * {@link Timestamp} representando a data e hora de chegada da locomotiva na
-	 * estação destino da rota
-	 */
-	@Column(name = "dt_momentochegada")
-	private Timestamp dt_momentochegada;
+    /**
+     * {@link Timestamp} representando a data e hora de chegada da locomotiva na
+     * estação destino da rota
+     */
+    @Column(name = "dt_momentochegada")
+    private Timestamp dt_momentochegada;
 }

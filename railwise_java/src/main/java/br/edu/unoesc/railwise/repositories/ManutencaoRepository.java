@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.unoesc.railwise.entities.Manutencao;
 
 @Repository
-public interface ManutencaoRepository extends JpaRepository<Manutencao, Long> {
+public interface ManutencaoRepository extends JpaRepository<Manutencao, Integer> {
 
 }

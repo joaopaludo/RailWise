@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.unoesc.railwise.entities.Vagao;
 
 @Repository
-public interface VagaoRepository extends JpaRepository<Vagao, Long> {
+public interface VagaoRepository extends JpaRepository<Vagao, Integer> {
 
 }

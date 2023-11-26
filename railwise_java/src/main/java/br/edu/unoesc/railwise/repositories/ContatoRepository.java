@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.unoesc.railwise.entities.Contato;
 
 @Repository
-public interface ContatoRepository extends JpaRepository<Contato, Long> {
+public interface ContatoRepository extends JpaRepository<Contato, Integer> {
 
 }

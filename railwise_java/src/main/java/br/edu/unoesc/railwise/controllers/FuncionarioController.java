@@ -25,71 +25,71 @@ import br.edu.unoesc.railwise.repositories.FuncionarioRepository;
 @RequestMapping("/funcionario")
 public class FuncionarioController {
 
-	@Autowired
-	private FuncionarioRepository funcionarioRepository;
+    @Autowired
+    private FuncionarioRepository funcionarioRepository;
 
-	/**
-	 * Retorna os funcionários cadastrados na base
-	 * 
-	 * @return lista de todos os funcionários cadastrados
-	 */
-	@GetMapping
-	public ResponseEntity<List<Funcionario>> findAll() {
-		return ResponseEntity.ok(funcionarioRepository.findAll());
-	}
+    /**
+     * Retorna os funcionários cadastrados na base
+     * 
+     * @return lista de todos os funcionários cadastrados
+     */
+    @GetMapping
+    public ResponseEntity<List<Funcionario>> findAll() {
+        return ResponseEntity.ok(funcionarioRepository.findAll());
+    }
 
-	/**
-	 * Busca um registro de funcionário na base pelo id do funcionário
-	 * 
-	 * @param id código identificador do funcionário a buscar
-	 * @return registro do funcionário com id igual ao id informado
-	 */
-	@GetMapping("/{id}")
-	public ResponseEntity<Funcionario> findById(@PathVariable Long id) {
-		Funcionario funcionario = funcionarioRepository.findById(id).get();
+    /**
+     * Busca um registro de funcionário na base pelo id do funcionário
+     * 
+     * @param id código identificador do funcionário a buscar
+     * @return registro do funcionário com id igual ao id informado
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<Funcionario> findById(@PathVariable Integer id) {
+        Funcionario funcionario = funcionarioRepository.findById(id).get();
 
-		return ResponseEntity.ok(funcionario);
-	}
+        return ResponseEntity.ok(funcionario);
+    }
 
-	/**
-	 * Salva um novo registro de funcionário
-	 * 
-	 * @param funcionario objeto de Funcionario com as informações do funcionário
-	 * @return o objeto de Funcionario salvo na base
-	 */
-	@PostMapping("/cadastro")
-	public ResponseEntity<Funcionario> save(@RequestBody Funcionario funcionario) {
-		funcionarioRepository.save(funcionario);
+    /**
+     * Salva um novo registro de funcionário
+     * 
+     * @param funcionario objeto de Funcionario com as informações do funcionário
+     * @return o objeto de Funcionario salvo na base
+     */
+    @PostMapping("/cadastro")
+    public ResponseEntity<Funcionario> save(@RequestBody Funcionario funcionario) {
+        funcionarioRepository.save(funcionario);
 
-		return ResponseEntity.ok(funcionario);
-	}
+        return ResponseEntity.ok(funcionario);
+    }
 
-	/**
-	 * Realiza a edição de um registro de funcionário já cadastrado
-	 * 
-	 * @param id          código identificador do funcionário a editar
-	 * @param funcionario objeto de Funcionario com as informações a serem gravadas
-	 * @return objeto de Funcionario salvo na base
-	 */
-	@PutMapping("/{id}")
-	public ResponseEntity<Funcionario> update(@PathVariable Long id, @RequestBody Funcionario funcionario) {
-		funcionario.setId_funcionario(id);
-		funcionarioRepository.save(funcionario);
+    /**
+     * Realiza a edição de um registro de funcionário já cadastrado
+     * 
+     * @param id          código identificador do funcionário a editar
+     * @param funcionario objeto de Funcionario com as informações a serem gravadas
+     * @return objeto de Funcionario salvo na base
+     */
+    @PutMapping("/{id}")
+    public ResponseEntity<Funcionario> update(@PathVariable Integer id, @RequestBody Funcionario funcionario) {
+        funcionario.setId_funcionario(id);
+        funcionarioRepository.save(funcionario);
 
-		return ResponseEntity.ok(funcionario);
-	}
+        return ResponseEntity.ok(funcionario);
+    }
 
-	/**
-	 * Exclui um registro de funcionário
-	 * 
-	 * @param id código identificador do funcionário a ser excluído
-	 * @return retorna um valor booleano -> true para exclusão bem sucedida
-	 */
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Boolean> delete(@PathVariable Long id) {
-		funcionarioRepository.deleteById(id);
+    /**
+     * Exclui um registro de funcionário
+     * 
+     * @param id código identificador do funcionário a ser excluído
+     * @return retorna um valor booleano -> true para exclusão bem sucedida
+     */
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable Integer id) {
+        funcionarioRepository.deleteById(id);
 
-		return ResponseEntity.ok(true);
-	}
+        return ResponseEntity.ok(true);
+    }
 
 }

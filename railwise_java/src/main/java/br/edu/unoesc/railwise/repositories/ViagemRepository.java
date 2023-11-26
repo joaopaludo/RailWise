@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.unoesc.railwise.entities.Viagem;
 
 @Repository
-public interface ViagemRepository extends JpaRepository<Viagem, Long> {
+public interface ViagemRepository extends JpaRepository<Viagem, Integer> {
 
 }

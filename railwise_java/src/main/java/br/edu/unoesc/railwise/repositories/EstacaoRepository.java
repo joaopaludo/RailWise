@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.unoesc.railwise.entities.Estacao;
 
 @Repository
-public interface EstacaoRepository extends JpaRepository<Estacao, Long> {
+public interface EstacaoRepository extends JpaRepository<Estacao, Integer> {
 
 }

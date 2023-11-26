@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.unoesc.railwise.entities.Carga;
 
 @Repository
-public interface CargaRepository extends JpaRepository<Carga, Long> {
+public interface CargaRepository extends JpaRepository<Carga, Integer> {
 
 }

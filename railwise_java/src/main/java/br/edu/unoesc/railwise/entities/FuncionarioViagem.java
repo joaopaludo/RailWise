@@ -16,30 +16,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Data
 public class FuncionarioViagem implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * {@link Long} que representa o id de funcionarioviagem
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_funcionarioviagem")
-	private Long id_funcionarioviagem;
+    /**
+     * {@link Integer} que representa o id de funcionarioviagem
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_funcionarioviagem")
+    private Integer id_funcionarioviagem;
 
-	/**
-	 * {@link Funcionario} que indica o funcionário
-	 */
-	@NotNull
-	@ManyToOne(targetEntity = Funcionario.class)
-	@JoinColumn(name = "cd_funcionario", referencedColumnName = "id_funcionario")
-	private Funcionario funcionario;
+    /**
+     * {@link Funcionario} que indica o funcionário
+     */
+    @NotNull
+    @ManyToOne(targetEntity = Funcionario.class)
+    @JoinColumn(name = "cd_funcionario", referencedColumnName = "id_funcionario")
+    private Funcionario funcionario;
 
-	/**
-	 * {@link Viagem} que indica a viagem
-	 */
-	@NotNull
-	@ManyToOne(targetEntity = Viagem.class)
-	@JoinColumn(name = "cd_viagem", referencedColumnName = "id_viagem")
-	@JsonIgnore
-	private Viagem viagem;
+    /**
+     * {@link Viagem} que indica a viagem
+     */
+    @NotNull
+    @ManyToOne(targetEntity = Viagem.class)
+    @JoinColumn(name = "cd_viagem", referencedColumnName = "id_viagem")
+    @JsonIgnore
+    private Viagem viagem;
 }

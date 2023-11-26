@@ -11,21 +11,21 @@ import java.io.Serializable;
 @Data
 public class TipoVagao implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * {@link Long} que representa o id do tipo de vagão
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_tipovagao")
-	private Long id_tipovagao;
+    /**
+     * {@link Integer} que representa o id do tipo de vagão
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_tipovagao")
+    private Integer id_tipovagao;
 
-	/**
-	 * {@link String} que representa a descrição do tipo de vagão
-	 */
-	@NotNull
-	@Column(name = "tx_descricao")
-	private String tx_descricao;
+    /**
+     * {@link String} que representa a descrição do tipo de vagão
+     */
+    @NotNull
+    @Column(name = "tx_descricao")
+    private String tx_descricao;
 
 }

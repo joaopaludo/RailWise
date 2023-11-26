@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.unoesc.railwise.entities.TipoFuncionario;
 
 @Repository
-public interface TipoFuncionarioRepository extends JpaRepository<TipoFuncionario, Long> {
+public interface TipoFuncionarioRepository extends JpaRepository<TipoFuncionario, Integer> {
 
 }

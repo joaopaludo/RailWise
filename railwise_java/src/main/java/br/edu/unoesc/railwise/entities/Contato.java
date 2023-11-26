@@ -13,38 +13,38 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Data
 public class Contato implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * {@link Long} que representa o id do contato
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_contato")
-	private Long id_contato;
+    /**
+     * {@link Integer} que representa o id do contato
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_contato")
+    private Integer id_contato;
 
-	/**
-	 * {@link Long} que representa o código do tipo de contato (1 - Email; 2 -
-	 * Telefone; 3 - Celular)
-	 */
-	@NotNull
-	@Column(name = "cd_tipocontato")
-	private Long cd_tipocontato;
+    /**
+     * {@link Integer} que representa o código do tipo de contato (1 - Email; 2 -
+     * Telefone; 3 - Celular)
+     */
+    @NotNull
+    @Column(name = "cd_tipocontato")
+    private Integer cd_tipocontato;
 
-	/**
-	 * {@link String} representando o contato propriamente dito
-	 */
-	@NotNull
-	@Column(name = "tx_contato")
-	private String tx_contato;
+    /**
+     * {@link String} representando o contato propriamente dito
+     */
+    @NotNull
+    @Column(name = "tx_contato")
+    private String tx_contato;
 
-	/**
-	 * {@link Cliente} que representa o cliente ao qual o contato pertence
-	 */
-	@NotNull
-	@ManyToOne(targetEntity = Cliente.class)
-	@JoinColumn(name = "cd_cliente", referencedColumnName = "id_cliente")
-	@JsonIgnore
-	private Cliente cliente;
+    /**
+     * {@link Cliente} que representa o cliente ao qual o contato pertence
+     */
+    @NotNull
+    @ManyToOne(targetEntity = Cliente.class)
+    @JoinColumn(name = "cd_cliente", referencedColumnName = "id_cliente")
+    @JsonIgnore
+    private Cliente cliente;
 
 }
